@@ -12,8 +12,3 @@ class DialogAgent
 		return "b"
 	end
 end
-
-da = DialogAgent.new("C:\\Users\\Daniel\\test.yml")
-puts da.process("hallo")
-puts da.process("ciao")
-puts da.process("rochen")
