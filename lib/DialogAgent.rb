@@ -5,7 +5,7 @@ class DialogAgent
 	end
 	def process(input)
 		@yfile.each do |key, value| 
-			if key.match(input)
+			if Regexp.new(key).match(input)
 				return value
 			end
 		end
