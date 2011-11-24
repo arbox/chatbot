@@ -1,0 +1,1 @@
+A simple chatbot which can answer question on the University of Trier.
