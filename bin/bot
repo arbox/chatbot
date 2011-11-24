@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# -*- encoding: utf-8; mode: ruby -*-
+
+require 'yaml'
+require 'chatbot'
+
+config = YAML.load_file('chatbot/bot.conf')
+
+
+bot = Chatbot::Bot.new(config)
+
+bot.connect
