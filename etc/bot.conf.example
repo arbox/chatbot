@@ -1,0 +1,5 @@
+name: 'Example Chat Bot'
+jabber_id: 'bott@example.com'
+password:  'xyz'
+master:    'master@example.com'
+is_public: true
