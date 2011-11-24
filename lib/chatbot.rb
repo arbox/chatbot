@@ -1,5 +1,3 @@
-require "chatbot/version"
+require 'chatbot/version'
+require 'chatbot/bot'
 
-module Chatbot
-  # Your code goes here...
-end
