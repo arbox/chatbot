@@ -4,3 +4,4 @@ Gemfile.lock
 pkg/*
 tmp
 test.rb
+ydoc
