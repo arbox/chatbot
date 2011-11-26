@@ -1,0 +1,1167 @@
+
+<!-- Campusgraph bisher -->
+
+<!-- 1. Knotenmenge (nach Gebäuden) -->
+<!-- 2. Kantenmenge -->
+<!-- 	a. Kanten innerhalb von Gebäuden -->
+<!-- 	b. Kanten zwischen Türen -->
+
+
+
+<!-- Knotenformat: name, type -->
+<!-- Knotentypen: floor, door, stairs, elevator -->
+
+<!-- Kantenformat: knoten 1, knoten 2, gewicht -->
+<!-- Gewicht?? -->
+<!-- Kantenanmerkungen: Nur zu best. Uhrzeit passierbar? Nur ohne Rucksack passierbar? Nur im Sommer empfehlenswert? -->
+
+<!-- weitere Gebäudeknoten?: Mensa F, Bib F? Hörsäle? -->
+
+
+
+<!-- noch unvollständig: -->
+<!-- Kanten zwischen den Türen (Gewichte!) -->
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+
+<campus>
+	    
+	<!-- ------------------------------------------------------- Knotenmenge ------------------------------------------------------- -->
+	
+	<nodes>
+		<!-- A-Gebäude -->
+		<node name="a0" type="floor"/>
+		<node name="a1" type="floor"/>
+		<node name="a2" type="floor"/>
+		<node name="a3" type="floor"/>
+		<node name="a4" type="floor"/>
+		<node name="a0door1" type="door" desc="Nordeingang"/> 
+		<node name="a0door2" type="door" desc="Osteingang"/> 
+		<node name="a0door3" type="door" desc="Haupteingang"/> 
+		<node name="a0door4" type="door" desc="Eingang bei der Caféteria"/>
+		<node name="ae1" type="elevator"/>
+		<node name="as1" type="stairs"/>
+		<!-- B-Gebäude -->
+		<node name="b0" type="floor"/>
+		<node name="b1" type="floor"/>
+		<node name="b2" type="floor"/>
+		<node name="b3" type="floor"/>
+		<node name="b4" type="floor"/>
+		<node name="b5" type="floor"/>
+		<node name="b0door1" type="door" desc="Nordwesteingang (Richtung Forum)"/> 
+		<node name="b0door2" type="door" desc="Nordostgang"/> 
+		<node name="b0door3" type="door" desc="Westeingang (Richtung C-Gebäude)"/>
+		<node name="be1" type="elevator"/>
+		<node name="bs1" type="stairs" desc="Haupttreppenhaus"/>
+		<node name="bs2" type="stairs" desc="Seitentreppenhaus"/> 
+		<node name="bs3" type="stairs" desc="Treppehnhaus bei der Caféteria"/>
+		<!-- Bibliothek -->
+		<node name="bib0" type="floor"/>
+		<node name="bib1" type="floor"/>
+		<node name="bib0door1" type="door"/>
+		<!-- C-Gebäude -->
+		<node name="c0" type="floor"/>
+		<node name="c1" type="floor"/>
+		<node name="c2" type="floor"/>
+		<node name="c3" type="floor"/>
+		<node name="c4" type="floor"/>
+		<node name="c5" type="floor"/>
+		<node name="c0door1" type="door" desc="Nordeingang (Richtung Forum)"/> 
+		<node name="c0door2" type="door" desc="Osteingang (Richtung B-Gebäude)"/>
+		<node name="c0door3" type="door" desc="Westeingang (Richtung Hörsaal 7)"/> 
+		<node name="c0door4" type="door" desc="Südeingang"/> 
+		<node name="ce1" type="elevator"/>
+		<node name="cs1" type="stairs"/>
+		<!-- D-Gebäude -->
+		<node name="d0" type="floor"/>
+		<node name="d1" type="floor"/>
+		<node name="d2" type="floor"/>
+		<node name="d3" type="floor"/>
+		<node name="d4" type="floor"/>
+		<node name="d0door1" type="door" desc="Haupteingang"/> 
+		<node name="d0door2" type="door" desc="Hintereingang"/> 
+		<node name="de1" type="elevator"/>
+		<node name="ds1" type="stairs"/>
+		<node name="ds2" type="stairs"/>
+		<!-- DM-Gebäude -->
+		<node name="dm0" type="floor"/>
+		<node name="dm1" type="floor"/>
+		<node name="dm2" type="floor"/>
+		<node name="dm3" type="floor"/>
+		<node name="dm0door1" type="door"/>
+		<node name="dms1" type="stairs"/>
+		<node name="dms2" type="stairs"/>
+		<!-- E-Gebäude -->
+		<node name="e-1" type="floor"/>
+		<node name="e0" type="floor"/>
+		<node name="e1" type="floor"/>
+		<node name="e2" type="floor"/>
+		<node name="e3" type="floor"/>
+		<node name="e-1door1" type="door" desc="Osteingang (Richtung Parkplatz)"/> 
+		<node name="e-1door2" type="door" desc="Westeingang (Richtung D-Gebäude)"/> 
+		<node name="e0door1" type="door" desc="Haupteingang"/> 
+		<node name="e0door2" type="door" desc="Seiteneingang"/> 
+		<node name="ee1" type="elevator"/>
+		<node name="es1" type="stairs"/>
+		<!-- F-Gebäude -->
+		<node name="f0" type="floor"/>
+		<node name="f1" type="floor"/>
+		<node name="f2" type="floor"/>
+		<node name="f0door1" type="door" desc="Haupteingang"/> 
+		<node name="f0door2" type="door" desc="Nordwesteingang"/> 
+		<node name="f0door3" type="door" desc="Westeingang"/>
+		<node name="f0door4" type="door" desc="Südeingang"/>
+		<node name="f0door5" type="door" desc="Osteingang"/>
+		<node name="f1door1" type="door" desc="Oberer Haupteingang (Richtung Forum)"/>
+		<node name="fs1" type="stairs" desc="Treppenhaus bei der Bibliothek"/>
+		<node name="fs2" type="stairs" desc="Östliches Treppenhaus"/>
+		<node name="fe1" type="elevator"/>
+		<!-- H-Gebäude -->
+		<node name="h0" type="floor"/>
+		<node name="h1" type="floor"/>
+		<node name="h2" type="floor"/>
+		<node name="h3" type="floor"/>
+		<node name="h4" type="floor"/>
+		<node name="h5" type="floor"/>
+		<node name="h6" type="floor"/>
+		<node name="h7" type="floor"/>
+		<node name="h0door1" type="door" desc="Nordeingang"/> 
+		<node name="h0door2" type="door" desc="Südwesteingang"/> 
+		<node name="h0door3" type="door" desc="Westeingang"/>
+		<node name="he1" type="elevator"/>
+		<node name="he2" type="elevator"/>
+		<node name="hs1" type="stairs"/>
+		<node name="hs2" type="stairs"/>
+		<node name="hs3" type="stairs"/>
+		<!-- HZ-Gebäude -->
+		<node name="hz1" type="floor"/>
+		<node name="hz2" type="floor"/>
+		<node name="hz1door1" type="door" desc="Westeingang (Richtung Forum)"/> 
+		<node name="hz1door2" type="door" desc="Osteingang (Richtung Campus I)"/> 
+		<node name="hze1" type="elevator"/>
+		<node name="hzs1" type="stairs"/>
+		<!-- K-Gebäude -->
+		<node name="k1" type="floor"/>
+		<node name="k1door1" type="door"/>
+		<!-- Mensa/Audimax -->
+		<node name="m0" type="floor"/>
+		<node name="m-1" type="floor"/>
+		<node name="m0door1" type="door" desc="Haupteingang"/> 
+		<node name="m0door2" type="door" desc="Seiteneingang"/> 
+		<node name="m-1door1" type="door" desc="Unterer Eingang"/> 
+		<node name="ms1" type="stairs"/> 
+		<!-- N-Gebäude -->
+		<node name="n0" type="floor"/>
+		<node name="n1" type="floor"/>
+		<node name="n2" type="floor"/>
+		<node name="n3" type="floor"/>
+		<node name="n0door1" type="door" desc="Haupteingang"/> 
+		<node name="n0door2" type="door" desc="Hintereingang"/> 
+		<node name="ns1" type="stairs"/>
+		<node name="ne1" type="elevator"/>
+		<!-- P-Gebäude -->
+		<node name="p0" type="floor"/>
+		<node name="p0door1" type="door"/>
+		<!-- V-Gebäude -->
+		<node name="v0" type="floor"/>
+		<node name="v1" type="floor"/>
+		<node name="v2" type="floor"/>
+		<node name="v3" type="floor"/>
+		<node name="v0door1" type="door"/>
+		<node name="vs1" type="stairs"/>
+		<node name="ve1" type="elevator"/>
+		<!-- Hörsäle -->
+		<node name="hs1" type="lecturehall"/>
+		<node name="hs2" type="lecturehall"/>
+		<node name="hs3" type="lecturehall"/>
+		<node name="hs4" type="lecturehall"/>
+		<node name="hs5" type="lecturehall"/>
+		<node name="hs6" type="lecturehall"/>
+		<node name="hs7" type="lecturehall"/>
+		<node name="hs8" type="lecturehall"/>
+		<node name="hs9" type="lecturehall"/>
+		<node name="hs10" type="lecturehall"/>
+		<node name="hs11" type="lecturehall"/>
+		<node name="hs12" type="lecturehall"/>
+		<node name="hs13" type="lecturehall"/>
+		<!-- Sonstiges -->
+		<!-- zB Bushaltestellen, Toiletten, Sportplätze, Geschäfte? -->
+	</nodes>
+	
+	
+	<!-- ------------------------------------------------------- Kantenmenge ------------------------------------------------------- -->
+	
+	
+	<edges>
+		<!-- ------------------------------ Gebäude innen ------------------------------ -->
+		<edge from="a0" to="a0door1" weight="1"/>
+		<edge from="a0" to="a0door2" weight="1"/>
+		<edge from="a0" to="a0door3" weight="1"/>
+		<edge from="a0" to="a0door4" weight="1"/>
+		<edge from="a0" to="ae1" weight="1"/>
+		<edge from="a0" to="as1" weight="1"/>
+		<edge from="a0" to="b0" weight="1"/>
+		<edge from="a1" to="ae1" weight="1"/>
+		<edge from="a1" to="as1" weight="1"/>
+		<edge from="a2" to="ae1" weight="1"/>
+		<edge from="a2" to="as1" weight="1"/>
+		<edge from="a3" to="b3" weight="1"/>
+		<edge from="a3" to="ae1" weight="1"/>
+		<edge from="a3" to="as1" weight="1"/>
+		<edge from="a4" to="ae1" weight="1"/>
+		<edge from="a4" to="as1" weight="1"/>
+		
+		<edge from="b0" to="b0door1" weight="1"/>
+		<edge from="b0" to="b0door2" weight="1"/>
+		<edge from="b0" to="b0door3" weight="1"/>
+		<edge from="b0" to="be1" weight="1"/>
+		<edge from="b0" to="bs1" weight="1"/>
+		<edge from="b0" to="bs2" weight="1"/>
+		<edge from="b0" to="bs3" weight="1"/>
+		<edge from="b1" to="bib1" weight="3"/>
+		<edge from="b1" to="bs1" weight="1"/>
+		<edge from="b1" to="bs2" weight="1"/>
+		<edge from="b1" to="be1" weight="1"/>
+		<edge from="b2" to="bs1" weight="1"/>
+		<edge from="b2" to="bs2" weight="1"/>
+		<edge from="b2" to="be1" weight="1"/>
+		<edge from="b3" to="bs1" weight="1"/>
+		<edge from="b3" to="bs2" weight="1"/>
+		<edge from="b3" to="bs3" weight="1"/>
+		<edge from="b3" to="be1" weight="1"/>
+		<edge from="b4" to="bs1" weight="1"/>
+		<edge from="b4" to="bs2" weight="1"/>
+		<edge from="b4" to="bs3" weight="1"/>
+		<edge from="b4" to="be1" weight="1"/>
+		<edge from="b5" to="bs1" weight="1"/>
+		<edge from="b5" to="be1" weight="1"/>
+		
+		<edge from="c0" to="c0door1" weight="1"/>
+		<edge from="c0" to="c0door2" weight="1"/>
+		<edge from="c0" to="c0door3" weight="1"/>
+		<edge from="c0" to="c0door4" weight="1"/>
+		<edge from="c0" to="ce1" weight="1"/>
+		<edge from="c0" to="cs1" weight="1"/>
+		<edge from="c1" to="bib1" weight="3"/>
+		<edge from="c1" to="cs1" weight="1"/>
+		<edge from="c1" to="ce1" weight="1"/>
+		<edge from="c2" to="cs1" weight="1"/>
+		<edge from="c2" to="ce1" weight="1"/>
+		<edge from="c3" to="cs1" weight="1"/>
+		<edge from="c3" to="ce1" weight="1"/>
+		<edge from="c4" to="cs1" weight="1"/>
+		<edge from="c4" to="ce1" weight="1"/>
+		<edge from="c5" to="cs1" weight="1"/>
+		<edge from="c5" to="ce1" weight="1"/>
+		
+		<edge from="d0" to="d0door1" weight="1"/>
+		<edge from="d0" to="d0door2" weight="1"/>
+		<edge from="d0" to="de1" weight="1"/>
+		<edge from="d0" to="ds1" weight="1"/>
+		<edge from="d0" to="ds2" weight="1"/>
+		<edge from="d1" to="ds1" weight="1"/>
+		<edge from="d1" to="ds2" weight="1"/>
+		<edge from="d1" to="de1" weight="1"/>
+		<edge from="d2" to="ds1" weight="1"/>
+		<edge from="d2" to="ds2" weight="1"/>
+		<edge from="d2" to="de1" weight="1"/>
+		<edge from="d3" to="ds1" weight="1"/>
+		<edge from="d3" to="ds2" weight="1"/>
+		<edge from="d3" to="de1" weight="1"/>
+		<edge from="d4" to="ds1" weight="1"/>
+		<edge from="d4" to="ds2" weight="1"/>
+		<edge from="d4" to="de1" weight="1"/>
+		
+		<edge from="dm0" to="dm0door1" weight="1"/>
+		<edge from="dm0" to="dme1" weight="1"/>
+		<edge from="dm0" to="dms1" weight="1"/>
+		<edge from="dm1" to="dms1" weight="1"/>
+		<edge from="dm1" to="dme1" weight="1"/>
+		<edge from="dm2" to="dms1" weight="1"/>
+		<edge from="dm2" to="dme1" weight="1"/>
+		<edge from="dm3" to="dms1" weight="1"/>
+		<edge from="dm3" to="dme1" weight="1"/>
+		
+		<edge from="e-1" to="e-1door1" weight="1"/>
+		<edge from="e-1" to="e-1door2" weight="1"/>
+		<edge from="e-1" to="ee1" weight="1"/>
+		<edge from="e-1" to="es1" weight="1"/>
+		<edge from="e0" to="e0door1" weight="1"/>
+		<edge from="e0" to="e0door2" weight="1"/>
+		<edge from="e0" to="ee1" weight="1"/>
+		<edge from="e0" to="es1" weight="1"/>
+		<edge from="e1" to="bib1" weight="3"/>
+		<edge from="e1" to="es1" weight="1"/>
+		<edge from="e1" to="ee1" weight="1"/>
+		<edge from="e2" to="es1" weight="1"/>
+		<edge from="e2" to="ee1" weight="1"/>
+		<edge from="e3" to="es1" weight="1"/>
+		<edge from="e3" to="ee1" weight="1"/>
+		
+		<edge from="f0" to="f0door1" weight="1"/>
+		<edge from="f0" to="f0door2" weight="1"/>
+		<edge from="f0" to="f0door3" weight="1"/>
+		<edge from="f0" to="f0door4" weight="1"/>
+		<edge from="f0" to="f0door5" weight="1"/>
+		<edge from="f0" to="h0" weight="1"/>
+		<edge from="f0" to="fs1" weight="1"/>
+		<edge from="f0" to="fs2" weight="1"/>
+		<edge from="f0" to="fe2" weight="1"/>
+		<edge from="f1" to="f1door1" weight="1"/>
+		<edge from="f1" to="fs1" weight="1"/>
+		<edge from="f1" to="fs2" weight="1"/>
+		<edge from="f1" to="fe1" weight="1"/>
+		<edge from="f1" to="h1" weight="1"/>
+		<edge from="f2" to="fs1" weight="1"/>
+		<edge from="f2" to="fs2" weight="1"/>
+		<edge from="f2" to="fe1" weight="1"/>
+		<edge from="f2" to="h2" weight="1"/>
+		
+		<edge from="h0" to="h0door1" weight="1"/>
+		<edge from="h0" to="h0door2" weight="1"/>
+		<edge from="h0" to="h0door3" weight="1"/>
+		<edge from="h0" to="hs1" weight="1"/>
+		<edge from="h0" to="hs2" weight="1"/>
+		<edge from="h0" to="hs3" weight="1"/>
+		<edge from="h0" to="he1" weight="1"/>
+		<edge from="h0" to="he2" weight="1"/>
+		<edge from="h1" to="hs1" weight="1"/>
+		<edge from="h1" to="hs2" weight="1"/>
+		<edge from="h1" to="hs3" weight="1"/>
+		<edge from="h1" to="he1" weight="1"/>
+		<edge from="h1" to="he2" weight="1"/>
+		<edge from="h1" to="hz2" weight="1"/>
+		<edge from="h2" to="hs1" weight="1"/>
+		<edge from="h2" to="hs2" weight="1"/>
+		<edge from="h2" to="hs3" weight="1"/>
+		<edge from="h2" to="he1" weight="1"/>
+		<edge from="h2" to="he2" weight="1"/>
+		<edge from="h3" to="hs1" weight="1"/>
+		<edge from="h3" to="hs2" weight="1"/>
+		<edge from="h3" to="hs3" weight="1"/>
+		<edge from="h3" to="he1" weight="1"/>
+		<edge from="h3" to="he2" weight="1"/>
+		<edge from="h4" to="hs1" weight="1"/>
+		<edge from="h4" to="hs2" weight="1"/>
+		<edge from="h4" to="hs3" weight="1"/>
+		<edge from="h4" to="he1" weight="1"/>
+		<edge from="h4" to="he2" weight="1"/>
+		<edge from="h5" to="hs1" weight="1"/>
+		<edge from="h5" to="hs2" weight="1"/>
+		<edge from="h5" to="hs3" weight="1"/>
+		<edge from="h5" to="he1" weight="1"/>
+		<edge from="h5" to="he2" weight="1"/>
+		<edge from="h6" to="hs1" weight="1"/>
+		<edge from="h6" to="hs2" weight="1"/>
+		<edge from="h6" to="hs3" weight="1"/>
+		<edge from="h6" to="he1" weight="1"/>
+		<edge from="h6" to="he2" weight="1"/>
+		<edge from="h7" to="hs1" weight="1"/>
+		<edge from="h7" to="hs2" weight="1"/>
+		<edge from="h7" to="hs3" weight="1"/>
+		<edge from="h7" to="he1" weight="1"/>
+		<edge from="h7" to="he2" weight="1"/>
+		
+		<edge from="hz1" to="hz1door1" weight="1"/>
+		<edge from="hz1" to="hz1door2" weight="1"/>
+		<edge from="hz1" to="hz1door2" weight="1"/>
+		<edge from="hz1" to="hze1" weight="1"/>
+		<edge from="hz1" to="hzs1" weight="1"/>
+		<edge from="hz1" to="k1" weight="1"/>
+		<edge from="hz1" to="h0" weight="1"/>
+		<edge from="hz2" to="hze1" weight="1"/>
+		<edge from="hz2" to="hzs1" weight="1"/>
+		
+		<edge from="k1" to="k1door1" weight="1"/>
+		
+		<edge from="m0" to="m0door1" weight="1"/>
+		<edge from="m0" to="m0door2" weight="1"/>
+		<edge from="m0" to="ms1" weight="1"/>
+		<edge from="m-1" to="ms1" weight="1"/>
+		<edge from="m-1" to="m-1door1" weight="1"/>
+		
+		<edge from="n0" to="n0door1" weight="1"/>
+		<edge from="n0" to="n0door2" weight="1"/>
+		<edge from="n0" to="ne1" weight="1"/>
+		<edge from="n0" to="ns1" weight="1"/>
+		<edge from="n1" to="ns1" weight="1"/>
+		<edge from="n1" to="ne1" weight="1"/>
+		<edge from="n2" to="ns1" weight="1"/>
+		<edge from="n2" to="ne1" weight="1"/>
+		<edge from="n3" to="ns1" weight="1"/>
+		<edge from="n3" to="ne1" weight="1"/>
+		
+		<edge from="p0" to="p0door1" weight="1"/>
+		
+		<edge from="v0" to="v0door1" weight="1"/>
+		<edge from="v0" to="ve1" weight="1"/>
+		<edge from="v0" to="vs1" weight="1"/>
+		<edge from="v1" to="vs1" weight="1"/>
+		<edge from="v1" to="ve1" weight="1"/>
+		<edge from="v2" to="vs1" weight="1"/>
+		<edge from="v2" to="ve1" weight="1"/>
+		<edge from="v3" to="vs1" weight="1"/>
+		<edge from="v3" to="ve1" weight="1"/>
+		
+		<edge from="hs1" to="b0" weight="1"/>
+		<edge from="hs2" to="b0" weight="1"/>
+		<edge from="hs3" to="b0" weight="1"/>
+		<edge from="hs4" to="c0" weight="1"/>
+		<edge from="hs5" to="c0" weight="1"/>
+		<edge from="hs6" to="c0" weight="1"/>
+		<edge from="hs7" to="c0door3" weight="1"/>
+		<edge from="hs8" to="d0" weight="1"/>
+		<edge from="hs9" to="e0" weight="1"/>
+		<edge from="hs10" to="e0" weight="1"/>
+		<edge from="hs11" to="hz1" weight="1"/>
+		<edge from="hs12" to="hz1" weight="1"/>
+		<edge from="hs13" to="hz1" weight="1"/>
+
+		
+		<!-- ------------------------------ Türen ------------------------------ -->
+		<edge from="a0door1" to="a0door2" weight="1"/>
+		<edge from="a0door1" to="a0door3" weight="2"/>
+		<edge from="a0door1" to="a0door4" weight="1"/>
+		<edge from="a0door1" to="b0door1" weight="3"/>
+		<edge from="a0door1" to="b0door2" weight="1"/>
+		<edge from="a0door1" to="b0door3" weight="4"/>
+		<edge from="a0door1" to="bib0door1" weight="3"/>
+		<edge from="a0door1" to="c0door1" weight="3"/>
+		<edge from="a0door1" to="c0door2" weight="4"/>
+		<edge from="a0door1" to="c0door3" weight="4"/>
+		<edge from="a0door1" to="c0door4" weight="4"/>
+		<edge from="a0door1" to="d0door1" weight="2"/>
+		<edge from="a0door1" to="d0door2" weight="2"/>
+		<edge from="a0door1" to="dm0door1" weight="6"/>
+		<edge from="a0door1" to="e-1door1" weight="2"/>
+		<edge from="a0door1" to="e-1door2" weight="3"/>
+		<edge from="a0door1" to="e0door1" weight="1"/>
+		<edge from="a0door1" to="e0door2" weight="1"/>
+		<edge from="a0door1" to="f0door1" weight="15"/>
+		<edge from="a0door1" to="f0door2" weight="15"/>
+		<edge from="a0door1" to="f0door3" weight="15"/>
+		<edge from="a0door1" to="f0door4" weight="15"/>
+		<edge from="a0door1" to="f0door5" weight="15"/>
+		<edge from="a0door1" to="f1door1" weight="15"/>
+		<edge from="a0door1" to="h0door1" weight="14"/>
+		<edge from="a0door1" to="h0door2" weight="15"/>
+		<edge from="a0door1" to="h0door3" weight="15"/>
+		<edge from="a0door1" to="hz1door1" weight="15"/>
+		<edge from="a0door1" to="hz1door2" weight="14"/>
+		<edge from="a0door1" to="k1door1" weight="15"/>
+		<edge from="a0door1" to="m0door1" weight="3"/>
+		<edge from="a0door1" to="m0door2" weight="3"/>
+		<edge from="a0door1" to="m-1door1" weight="4"/>
+		<edge from="a0door1" to="n0door1" weight="1"/>
+		<edge from="a0door1" to="n0door2" weight="1"/>
+		<edge from="a0door1" to="p0door1" weight="1"/>
+		<edge from="a0door1" to="v0door1" weight="5"/>
+
+		<edge from="a0door2" to="a0door3" weight="999"/>
+		<edge from="a0door2" to="a0door4" weight="999"/>
+		<edge from="a0door2" to="b0door1" weight="999"/>
+		<edge from="a0door2" to="b0door2" weight="999"/>
+		<edge from="a0door2" to="b0door3" weight="999"/>
+		<edge from="a0door2" to="bib0door1" weight="999"/>
+		<edge from="a0door2" to="c0door1" weight="999"/>
+		<edge from="a0door2" to="c0door2" weight="999"/>
+		<edge from="a0door2" to="c0door3" weight="999"/>
+		<edge from="a0door2" to="c0door4" weight="999"/>
+		<edge from="a0door2" to="d0door1" weight="999"/>
+		<edge from="a0door2" to="d0door2" weight="999"/>
+		<edge from="a0door2" to="dm0door1" weight="999"/>
+		<edge from="a0door2" to="e-1door1" weight="999"/>
+		<edge from="a0door2" to="e-1door2" weight="999"/>
+		<edge from="a0door2" to="e0door1" weight="999"/>
+		<edge from="a0door2" to="e0door2" weight="999"/>
+		<edge from="a0door2" to="f0door1" weight="999"/>
+		<edge from="a0door2" to="f0door2" weight="999"/>
+		<edge from="a0door2" to="f0door3" weight="999"/>
+		<edge from="a0door2" to="f0door4" weight="999"/>
+		<edge from="a0door2" to="f0door5" weight="999"/>
+		<edge from="a0door2" to="f1door1" weight="999"/>
+		<edge from="a0door2" to="h0door1" weight="999"/>
+		<edge from="a0door2" to="h0door2" weight="999"/>
+		<edge from="a0door2" to="h0door3" weight="999"/>
+		<edge from="a0door2" to="hz1door1" weight="999"/>
+		<edge from="a0door2" to="hz1door2" weight="999"/>
+		<edge from="a0door2" to="k1door1" weight="999"/>
+		<edge from="a0door2" to="m0door1" weight="999"/>
+		<edge from="a0door2" to="m0door2" weight="999"/>
+		<edge from="a0door2" to="m-1door1" weight="999"/>
+		<edge from="a0door2" to="n0door1" weight="999"/>
+		<edge from="a0door2" to="n0door2" weight="999"/>
+		<edge from="a0door2" to="p0door1" weight="999"/>
+		<edge from="a0door2" to="v0door1" weight="999"/>
+
+		<edge from="a0door3" to="a0door4" weight="999"/>
+		<edge from="a0door3" to="b0door1" weight="999"/>
+		<edge from="a0door3" to="b0door2" weight="999"/>
+		<edge from="a0door3" to="b0door3" weight="999"/>
+		<edge from="a0door3" to="bib0door1" weight="999"/>
+		<edge from="a0door3" to="c0door1" weight="999"/>
+		<edge from="a0door3" to="c0door2" weight="999"/>
+		<edge from="a0door3" to="c0door3" weight="999"/>
+		<edge from="a0door3" to="c0door4" weight="999"/>
+		<edge from="a0door3" to="d0door1" weight="999"/>
+		<edge from="a0door3" to="d0door2" weight="999"/>
+		<edge from="a0door3" to="dm0door1" weight="999"/>
+		<edge from="a0door3" to="e-1door1" weight="999"/>
+		<edge from="a0door3" to="e-1door2" weight="999"/>
+		<edge from="a0door3" to="e0door1" weight="999"/>
+		<edge from="a0door3" to="e0door2" weight="999"/>
+		<edge from="a0door3" to="f0door1" weight="999"/>
+		<edge from="a0door3" to="f0door2" weight="999"/>
+		<edge from="a0door3" to="f0door3" weight="999"/>
+		<edge from="a0door3" to="f0door4" weight="999"/>
+		<edge from="a0door3" to="f0door5" weight="999"/>
+		<edge from="a0door3" to="f1door1" weight="999"/>
+		<edge from="a0door3" to="h0door1" weight="999"/>
+		<edge from="a0door3" to="h0door2" weight="999"/>
+		<edge from="a0door3" to="h0door3" weight="999"/>
+		<edge from="a0door3" to="hz1door1" weight="999"/>
+		<edge from="a0door3" to="hz1door2" weight="999"/>
+		<edge from="a0door3" to="k1door1" weight="999"/>
+		<edge from="a0door3" to="m0door1" weight="999"/>
+		<edge from="a0door3" to="m0door2" weight="999"/>
+		<edge from="a0door3" to="m-1door1" weight="999"/>
+		<edge from="a0door3" to="n0door1" weight="999"/>
+		<edge from="a0door3" to="n0door2" weight="999"/>
+		<edge from="a0door3" to="p0door1" weight="999"/>
+		<edge from="a0door3" to="v0door1" weight="999"/>
+
+		<edge from="a0door4" to="b0door1" weight="999"/>
+		<edge from="a0door4" to="b0door2" weight="999"/>
+		<edge from="a0door4" to="b0door3" weight="999"/>
+		<edge from="a0door4" to="bib0door1" weight="999"/>
+		<edge from="a0door4" to="c0door1" weight="999"/>
+		<edge from="a0door4" to="c0door2" weight="999"/>
+		<edge from="a0door4" to="c0door3" weight="999"/>
+		<edge from="a0door4" to="c0door4" weight="999"/>
+		<edge from="a0door4" to="d0door1" weight="999"/>
+		<edge from="a0door4" to="d0door2" weight="999"/>
+		<edge from="a0door4" to="dm0door1" weight="999"/>
+		<edge from="a0door4" to="e-1door1" weight="999"/>
+		<edge from="a0door4" to="e-1door2" weight="999"/>
+		<edge from="a0door4" to="e0door1" weight="999"/>
+		<edge from="a0door4" to="e0door2" weight="999"/>
+		<edge from="a0door4" to="f0door1" weight="999"/>
+		<edge from="a0door4" to="f0door2" weight="999"/>
+		<edge from="a0door4" to="f0door3" weight="999"/>
+		<edge from="a0door4" to="f0door4" weight="999"/>
+		<edge from="a0door4" to="f0door5" weight="999"/>
+		<edge from="a0door4" to="f1door1" weight="999"/>
+		<edge from="a0door4" to="h0door1" weight="999"/>
+		<edge from="a0door4" to="h0door2" weight="999"/>
+		<edge from="a0door4" to="h0door3" weight="999"/>
+		<edge from="a0door4" to="hz1door1" weight="999"/>
+		<edge from="a0door4" to="hz1door2" weight="999"/>
+		<edge from="a0door4" to="k1door1" weight="999"/>
+		<edge from="a0door4" to="m0door1" weight="999"/>
+		<edge from="a0door4" to="m0door2" weight="999"/>
+		<edge from="a0door4" to="m-1door1" weight="999"/>
+		<edge from="a0door4" to="n0door1" weight="999"/>
+		<edge from="a0door4" to="n0door2" weight="999"/>
+		<edge from="a0door4" to="p0door1" weight="999"/>
+		<edge from="a0door4" to="v0door1" weight="999"/>
+
+		<edge from="b0door1" to="b0door2" weight="999"/>
+		<edge from="b0door1" to="b0door3" weight="999"/>
+		<edge from="b0door1" to="bib0door1" weight="999"/>
+		<edge from="b0door1" to="c0door1" weight="999"/>
+		<edge from="b0door1" to="c0door2" weight="999"/>
+		<edge from="b0door1" to="c0door3" weight="999"/>
+		<edge from="b0door1" to="c0door4" weight="999"/>
+		<edge from="b0door1" to="d0door1" weight="999"/>
+		<edge from="b0door1" to="d0door2" weight="999"/>
+		<edge from="b0door1" to="dm0door1" weight="999"/>
+		<edge from="b0door1" to="e-1door1" weight="999"/>
+		<edge from="b0door1" to="e-1door2" weight="999"/>
+		<edge from="b0door1" to="e0door1" weight="999"/>
+		<edge from="b0door1" to="e0door2" weight="999"/>
+		<edge from="b0door1" to="f0door1" weight="999"/>
+		<edge from="b0door1" to="f0door2" weight="999"/>
+		<edge from="b0door1" to="f0door3" weight="999"/>
+		<edge from="b0door1" to="f0door4" weight="999"/>
+		<edge from="b0door1" to="f0door5" weight="999"/>
+		<edge from="b0door1" to="f1door1" weight="999"/>
+		<edge from="b0door1" to="h0door1" weight="999"/>
+		<edge from="b0door1" to="h0door2" weight="999"/>
+		<edge from="b0door1" to="h0door3" weight="999"/>
+		<edge from="b0door1" to="hz1door1" weight="999"/>
+		<edge from="b0door1" to="hz1door2" weight="999"/>
+		<edge from="b0door1" to="k1door1" weight="999"/>
+		<edge from="b0door1" to="m0door1" weight="999"/>
+		<edge from="b0door1" to="m0door2" weight="999"/>
+		<edge from="b0door1" to="m-1door1" weight="999"/>
+		<edge from="b0door1" to="n0door1" weight="999"/>
+		<edge from="b0door1" to="n0door2" weight="999"/>
+		<edge from="b0door1" to="p0door1" weight="999"/>
+		<edge from="b0door1" to="v0door1" weight="999"/>
+
+		<edge from="b0door2" to="b0door3" weight="999"/>
+		<edge from="b0door2" to="bib0door1" weight="999"/>
+		<edge from="b0door2" to="c0door1" weight="999"/>
+		<edge from="b0door2" to="c0door2" weight="999"/>
+		<edge from="b0door2" to="c0door3" weight="999"/>
+		<edge from="b0door2" to="c0door4" weight="999"/>
+		<edge from="b0door2" to="d0door1" weight="999"/>
+		<edge from="b0door2" to="d0door2" weight="999"/>
+		<edge from="b0door2" to="dm0door1" weight="999"/>
+		<edge from="b0door2" to="e-1door1" weight="999"/>
+		<edge from="b0door2" to="e-1door2" weight="999"/>
+		<edge from="b0door2" to="e0door1" weight="999"/>
+		<edge from="b0door2" to="e0door2" weight="999"/>
+		<edge from="b0door2" to="f0door1" weight="999"/>
+		<edge from="b0door2" to="f0door2" weight="999"/>
+		<edge from="b0door2" to="f0door3" weight="999"/>
+		<edge from="b0door2" to="f0door4" weight="999"/>
+		<edge from="b0door2" to="f0door5" weight="999"/>
+		<edge from="b0door2" to="f1door1" weight="999"/>
+		<edge from="b0door2" to="h0door1" weight="999"/>
+		<edge from="b0door2" to="h0door2" weight="999"/>
+		<edge from="b0door2" to="h0door3" weight="999"/>
+		<edge from="b0door2" to="hz1door1" weight="999"/>
+		<edge from="b0door2" to="hz1door2" weight="999"/>
+		<edge from="b0door2" to="k1door1" weight="999"/>
+		<edge from="b0door2" to="m0door1" weight="999"/>
+		<edge from="b0door2" to="m0door2" weight="999"/>
+		<edge from="b0door2" to="m-1door1" weight="999"/>
+		<edge from="b0door2" to="n0door1" weight="999"/>
+		<edge from="b0door2" to="n0door2" weight="999"/>
+		<edge from="b0door2" to="p0door1" weight="999"/>
+		<edge from="b0door2" to="v0door1" weight="999"/>
+
+		<edge from="b0door3" to="bib0door1" weight="999"/>
+		<edge from="b0door3" to="c0door1" weight="999"/>
+		<edge from="b0door3" to="c0door2" weight="999"/>
+		<edge from="b0door3" to="c0door3" weight="999"/>
+		<edge from="b0door3" to="c0door4" weight="999"/>
+		<edge from="b0door3" to="d0door1" weight="999"/>
+		<edge from="b0door3" to="d0door2" weight="999"/>
+		<edge from="b0door3" to="dm0door1" weight="999"/>
+		<edge from="b0door3" to="e-1door1" weight="999"/>
+		<edge from="b0door3" to="e-1door2" weight="999"/>
+		<edge from="b0door3" to="e0door1" weight="999"/>
+		<edge from="b0door3" to="e0door2" weight="999"/>
+		<edge from="b0door3" to="f0door1" weight="999"/>
+		<edge from="b0door3" to="f0door2" weight="999"/>
+		<edge from="b0door3" to="f0door3" weight="999"/>
+		<edge from="b0door3" to="f0door4" weight="999"/>
+		<edge from="b0door3" to="f0door5" weight="999"/>
+		<edge from="b0door3" to="f1door1" weight="999"/>
+		<edge from="b0door3" to="h0door1" weight="999"/>
+		<edge from="b0door3" to="h0door2" weight="999"/>
+		<edge from="b0door3" to="h0door3" weight="999"/>
+		<edge from="b0door3" to="hz1door1" weight="999"/>
+		<edge from="b0door3" to="hz1door2" weight="999"/>
+		<edge from="b0door3" to="k1door1" weight="999"/>
+		<edge from="b0door3" to="m0door1" weight="999"/>
+		<edge from="b0door3" to="m0door2" weight="999"/>
+		<edge from="b0door3" to="m-1door1" weight="999"/>
+		<edge from="b0door3" to="n0door1" weight="999"/>
+		<edge from="b0door3" to="n0door2" weight="999"/>
+		<edge from="b0door3" to="p0door1" weight="999"/>
+		<edge from="b0door3" to="v0door1" weight="999"/>
+
+		<edge from="bib0door1" to="c0door1" weight="999"/>
+		<edge from="bib0door1" to="c0door2" weight="999"/>
+		<edge from="bib0door1" to="c0door3" weight="999"/>
+		<edge from="bib0door1" to="c0door4" weight="999"/>
+		<edge from="bib0door1" to="d0door1" weight="999"/>
+		<edge from="bib0door1" to="d0door2" weight="999"/>
+		<edge from="bib0door1" to="dm0door1" weight="999"/>
+		<edge from="bib0door1" to="e-1door1" weight="999"/>
+		<edge from="bib0door1" to="e-1door2" weight="999"/>
+		<edge from="bib0door1" to="e0door1" weight="999"/>
+		<edge from="bib0door1" to="e0door2" weight="999"/>
+		<edge from="bib0door1" to="f0door1" weight="999"/>
+		<edge from="bib0door1" to="f0door2" weight="999"/>
+		<edge from="bib0door1" to="f0door3" weight="999"/>
+		<edge from="bib0door1" to="f0door4" weight="999"/>
+		<edge from="bib0door1" to="f0door5" weight="999"/>
+		<edge from="bib0door1" to="f1door1" weight="999"/>
+		<edge from="bib0door1" to="h0door1" weight="999"/>
+		<edge from="bib0door1" to="h0door2" weight="999"/>
+		<edge from="bib0door1" to="h0door3" weight="999"/>
+		<edge from="bib0door1" to="hz1door1" weight="999"/>
+		<edge from="bib0door1" to="hz1door2" weight="999"/>
+		<edge from="bib0door1" to="k1door1" weight="999"/>
+		<edge from="bib0door1" to="m0door1" weight="999"/>
+		<edge from="bib0door1" to="m0door2" weight="999"/>
+		<edge from="bib0door1" to="m-1door1" weight="999"/>
+		<edge from="bib0door1" to="n0door1" weight="999"/>
+		<edge from="bib0door1" to="n0door2" weight="999"/>
+		<edge from="bib0door1" to="p0door1" weight="999"/>
+		<edge from="bib0door1" to="v0door1" weight="999"/>
+
+		<edge from="c0door1" to="c0door2" weight="999"/>
+		<edge from="c0door1" to="c0door3" weight="999"/>
+		<edge from="c0door1" to="c0door4" weight="999"/>
+		<edge from="c0door1" to="d0door1" weight="999"/>
+		<edge from="c0door1" to="d0door2" weight="999"/>
+		<edge from="c0door1" to="dm0door1" weight="999"/>
+		<edge from="c0door1" to="e-1door1" weight="999"/>
+		<edge from="c0door1" to="e-1door2" weight="999"/>
+		<edge from="c0door1" to="e0door1" weight="999"/>
+		<edge from="c0door1" to="e0door2" weight="999"/>
+		<edge from="c0door1" to="f0door1" weight="999"/>
+		<edge from="c0door1" to="f0door2" weight="999"/>
+		<edge from="c0door1" to="f0door3" weight="999"/>
+		<edge from="c0door1" to="f0door4" weight="999"/>
+		<edge from="c0door1" to="f0door5" weight="999"/>
+		<edge from="c0door1" to="f1door1" weight="999"/>
+		<edge from="c0door1" to="h0door1" weight="999"/>
+		<edge from="c0door1" to="h0door2" weight="999"/>
+		<edge from="c0door1" to="h0door3" weight="999"/>
+		<edge from="c0door1" to="hz1door1" weight="999"/>
+		<edge from="c0door1" to="hz1door2" weight="999"/>
+		<edge from="c0door1" to="k1door1" weight="999"/>
+		<edge from="c0door1" to="m0door1" weight="999"/>
+		<edge from="c0door1" to="m0door2" weight="999"/>
+		<edge from="c0door1" to="m-1door1" weight="999"/>
+		<edge from="c0door1" to="n0door1" weight="999"/>
+		<edge from="c0door1" to="n0door2" weight="999"/>
+		<edge from="c0door1" to="p0door1" weight="999"/>
+		<edge from="c0door1" to="v0door1" weight="999"/>
+
+		<edge from="c0door2" to="c0door3" weight="999"/>
+		<edge from="c0door2" to="c0door4" weight="999"/>
+		<edge from="c0door2" to="d0door1" weight="999"/>
+		<edge from="c0door2" to="d0door2" weight="999"/>
+		<edge from="c0door2" to="dm0door1" weight="999"/>
+		<edge from="c0door2" to="e-1door1" weight="999"/>
+		<edge from="c0door2" to="e-1door2" weight="999"/>
+		<edge from="c0door2" to="e0door1" weight="999"/>
+		<edge from="c0door2" to="e0door2" weight="999"/>
+		<edge from="c0door2" to="f0door1" weight="999"/>
+		<edge from="c0door2" to="f0door2" weight="999"/>
+		<edge from="c0door2" to="f0door3" weight="999"/>
+		<edge from="c0door2" to="f0door4" weight="999"/>
+		<edge from="c0door2" to="f0door5" weight="999"/>
+		<edge from="c0door2" to="f1door1" weight="999"/>
+		<edge from="c0door2" to="h0door1" weight="999"/>
+		<edge from="c0door2" to="h0door2" weight="999"/>
+		<edge from="c0door2" to="h0door3" weight="999"/>
+		<edge from="c0door2" to="hz1door1" weight="999"/>
+		<edge from="c0door2" to="hz1door2" weight="999"/>
+		<edge from="c0door2" to="k1door1" weight="999"/>
+		<edge from="c0door2" to="m0door1" weight="999"/>
+		<edge from="c0door2" to="m0door2" weight="999"/>
+		<edge from="c0door2" to="m-1door1" weight="999"/>
+		<edge from="c0door2" to="n0door1" weight="999"/>
+		<edge from="c0door2" to="n0door2" weight="999"/>
+		<edge from="c0door2" to="p0door1" weight="999"/>
+		<edge from="c0door2" to="v0door1" weight="999"/>
+
+		<edge from="c0door3" to="c0door4" weight="999"/>
+		<edge from="c0door3" to="d0door1" weight="999"/>
+		<edge from="c0door3" to="d0door2" weight="999"/>
+		<edge from="c0door3" to="dm0door1" weight="999"/>
+		<edge from="c0door3" to="e-1door1" weight="999"/>
+		<edge from="c0door3" to="e-1door2" weight="999"/>
+		<edge from="c0door3" to="e0door1" weight="999"/>
+		<edge from="c0door3" to="e0door2" weight="999"/>
+		<edge from="c0door3" to="f0door1" weight="999"/>
+		<edge from="c0door3" to="f0door2" weight="999"/>
+		<edge from="c0door3" to="f0door3" weight="999"/>
+		<edge from="c0door3" to="f0door4" weight="999"/>
+		<edge from="c0door3" to="f0door5" weight="999"/>
+		<edge from="c0door3" to="f1door1" weight="999"/>
+		<edge from="c0door3" to="h0door1" weight="999"/>
+		<edge from="c0door3" to="h0door2" weight="999"/>
+		<edge from="c0door3" to="h0door3" weight="999"/>
+		<edge from="c0door3" to="hz1door1" weight="999"/>
+		<edge from="c0door3" to="hz1door2" weight="999"/>
+		<edge from="c0door3" to="k1door1" weight="999"/>
+		<edge from="c0door3" to="m0door1" weight="999"/>
+		<edge from="c0door3" to="m0door2" weight="999"/>
+		<edge from="c0door3" to="m-1door1" weight="999"/>
+		<edge from="c0door3" to="n0door1" weight="999"/>
+		<edge from="c0door3" to="n0door2" weight="999"/>
+		<edge from="c0door3" to="p0door1" weight="999"/>
+		<edge from="c0door3" to="v0door1" weight="999"/>
+
+		<edge from="c0door4" to="d0door1" weight="999"/>
+		<edge from="c0door4" to="d0door2" weight="999"/>
+		<edge from="c0door4" to="dm0door1" weight="999"/>
+		<edge from="c0door4" to="e-1door1" weight="999"/>
+		<edge from="c0door4" to="e-1door2" weight="999"/>
+		<edge from="c0door4" to="e0door1" weight="999"/>
+		<edge from="c0door4" to="e0door2" weight="999"/>
+		<edge from="c0door4" to="f0door1" weight="999"/>
+		<edge from="c0door4" to="f0door2" weight="999"/>
+		<edge from="c0door4" to="f0door3" weight="999"/>
+		<edge from="c0door4" to="f0door4" weight="999"/>
+		<edge from="c0door4" to="f0door5" weight="999"/>
+		<edge from="c0door4" to="f1door1" weight="999"/>
+		<edge from="c0door4" to="h0door1" weight="999"/>
+		<edge from="c0door4" to="h0door2" weight="999"/>
+		<edge from="c0door4" to="h0door3" weight="999"/>
+		<edge from="c0door4" to="hz1door1" weight="999"/>
+		<edge from="c0door4" to="hz1door2" weight="999"/>
+		<edge from="c0door4" to="k1door1" weight="999"/>
+		<edge from="c0door4" to="m0door1" weight="999"/>
+		<edge from="c0door4" to="m0door2" weight="999"/>
+		<edge from="c0door4" to="m-1door1" weight="999"/>
+		<edge from="c0door4" to="n0door1" weight="999"/>
+		<edge from="c0door4" to="n0door2" weight="999"/>
+		<edge from="c0door4" to="p0door1" weight="999"/>
+		<edge from="c0door4" to="v0door1" weight="999"/>
+
+		<edge from="d0door1" to="d0door2" weight="999"/>
+		<edge from="d0door1" to="dm0door1" weight="999"/>
+		<edge from="d0door1" to="e-1door1" weight="999"/>
+		<edge from="d0door1" to="e-1door2" weight="999"/>
+		<edge from="d0door1" to="e0door1" weight="999"/>
+		<edge from="d0door1" to="e0door2" weight="999"/>
+		<edge from="d0door1" to="f0door1" weight="999"/>
+		<edge from="d0door1" to="f0door2" weight="999"/>
+		<edge from="d0door1" to="f0door3" weight="999"/>
+		<edge from="d0door1" to="f0door4" weight="999"/>
+		<edge from="d0door1" to="f0door5" weight="999"/>
+		<edge from="d0door1" to="f1door1" weight="999"/>
+		<edge from="d0door1" to="h0door1" weight="999"/>
+		<edge from="d0door1" to="h0door2" weight="999"/>
+		<edge from="d0door1" to="h0door3" weight="999"/>
+		<edge from="d0door1" to="hz1door1" weight="999"/>
+		<edge from="d0door1" to="hz1door2" weight="999"/>
+		<edge from="d0door1" to="k1door1" weight="999"/>
+		<edge from="d0door1" to="m0door1" weight="999"/>
+		<edge from="d0door1" to="m0door2" weight="999"/>
+		<edge from="d0door1" to="m-1door1" weight="999"/>
+		<edge from="d0door1" to="n0door1" weight="999"/>
+		<edge from="d0door1" to="n0door2" weight="999"/>
+		<edge from="d0door1" to="p0door1" weight="999"/>
+		<edge from="d0door1" to="v0door1" weight="999"/>
+
+		<edge from="d0door2" to="dm0door1" weight="999"/>
+		<edge from="d0door2" to="e-1door1" weight="999"/>
+		<edge from="d0door2" to="e-1door2" weight="999"/>
+		<edge from="d0door2" to="e0door1" weight="999"/>
+		<edge from="d0door2" to="e0door2" weight="999"/>
+		<edge from="d0door2" to="f0door1" weight="999"/>
+		<edge from="d0door2" to="f0door2" weight="999"/>
+		<edge from="d0door2" to="f0door3" weight="999"/>
+		<edge from="d0door2" to="f0door4" weight="999"/>
+		<edge from="d0door2" to="f0door5" weight="999"/>
+		<edge from="d0door2" to="f1door1" weight="999"/>
+		<edge from="d0door2" to="h0door1" weight="999"/>
+		<edge from="d0door2" to="h0door2" weight="999"/>
+		<edge from="d0door2" to="h0door3" weight="999"/>
+		<edge from="d0door2" to="hz1door1" weight="999"/>
+		<edge from="d0door2" to="hz1door2" weight="999"/>
+		<edge from="d0door2" to="k1door1" weight="999"/>
+		<edge from="d0door2" to="m0door1" weight="999"/>
+		<edge from="d0door2" to="m0door2" weight="999"/>
+		<edge from="d0door2" to="m-1door1" weight="999"/>
+		<edge from="d0door2" to="n0door1" weight="999"/>
+		<edge from="d0door2" to="n0door2" weight="999"/>
+		<edge from="d0door2" to="p0door1" weight="999"/>
+		<edge from="d0door2" to="v0door1" weight="999"/>
+
+		<edge from="dm0door1" to="e-1door1" weight="999"/>
+		<edge from="dm0door1" to="e-1door2" weight="999"/>
+		<edge from="dm0door1" to="e0door1" weight="999"/>
+		<edge from="dm0door1" to="e0door2" weight="999"/>
+		<edge from="dm0door1" to="f0door1" weight="999"/>
+		<edge from="dm0door1" to="f0door2" weight="999"/>
+		<edge from="dm0door1" to="f0door3" weight="999"/>
+		<edge from="dm0door1" to="f0door4" weight="999"/>
+		<edge from="dm0door1" to="f0door5" weight="999"/>
+		<edge from="dm0door1" to="f1door1" weight="999"/>
+		<edge from="dm0door1" to="h0door1" weight="999"/>
+		<edge from="dm0door1" to="h0door2" weight="999"/>
+		<edge from="dm0door1" to="h0door3" weight="999"/>
+		<edge from="dm0door1" to="hz1door1" weight="999"/>
+		<edge from="dm0door1" to="hz1door2" weight="999"/>
+		<edge from="dm0door1" to="k1door1" weight="999"/>
+		<edge from="dm0door1" to="m0door1" weight="999"/>
+		<edge from="dm0door1" to="m0door2" weight="999"/>
+		<edge from="dm0door1" to="m-1door1" weight="999"/>
+		<edge from="dm0door1" to="n0door1" weight="999"/>
+		<edge from="dm0door1" to="n0door2" weight="999"/>
+		<edge from="dm0door1" to="p0door1" weight="999"/>
+		<edge from="dm0door1" to="v0door1" weight="999"/>
+
+		<edge from="e-1door1" to="e-1door2" weight="999"/>
+		<edge from="e-1door1" to="e0door1" weight="999"/>
+		<edge from="e-1door1" to="e0door2" weight="999"/>
+		<edge from="e-1door1" to="f0door1" weight="999"/>
+		<edge from="e-1door1" to="f0door2" weight="999"/>
+		<edge from="e-1door1" to="f0door3" weight="999"/>
+		<edge from="e-1door1" to="f0door4" weight="999"/>
+		<edge from="e-1door1" to="f0door5" weight="999"/>
+		<edge from="e-1door1" to="f1door1" weight="999"/>
+		<edge from="e-1door1" to="h0door1" weight="999"/>
+		<edge from="e-1door1" to="h0door2" weight="999"/>
+		<edge from="e-1door1" to="h0door3" weight="999"/>
+		<edge from="e-1door1" to="hz1door1" weight="999"/>
+		<edge from="e-1door1" to="hz1door2" weight="999"/>
+		<edge from="e-1door1" to="k1door1" weight="999"/>
+		<edge from="e-1door1" to="m0door1" weight="999"/>
+		<edge from="e-1door1" to="m0door2" weight="999"/>
+		<edge from="e-1door1" to="m-1door1" weight="999"/>
+		<edge from="e-1door1" to="n0door1" weight="999"/>
+		<edge from="e-1door1" to="n0door2" weight="999"/>
+		<edge from="e-1door1" to="p0door1" weight="999"/>
+		<edge from="e-1door1" to="v0door1" weight="999"/>
+
+		<edge from="e-1door2" to="e0door1" weight="999"/>
+		<edge from="e-1door2" to="e0door2" weight="999"/>
+		<edge from="e-1door2" to="f0door1" weight="999"/>
+		<edge from="e-1door2" to="f0door2" weight="999"/>
+		<edge from="e-1door2" to="f0door3" weight="999"/>
+		<edge from="e-1door2" to="f0door4" weight="999"/>
+		<edge from="e-1door2" to="f0door5" weight="999"/>
+		<edge from="e-1door2" to="f1door1" weight="999"/>
+		<edge from="e-1door2" to="h0door1" weight="999"/>
+		<edge from="e-1door2" to="h0door2" weight="999"/>
+		<edge from="e-1door2" to="h0door3" weight="999"/>
+		<edge from="e-1door2" to="hz1door1" weight="999"/>
+		<edge from="e-1door2" to="hz1door2" weight="999"/>
+		<edge from="e-1door2" to="k1door1" weight="999"/>
+		<edge from="e-1door2" to="m0door1" weight="999"/>
+		<edge from="e-1door2" to="m0door2" weight="999"/>
+		<edge from="e-1door2" to="m-1door1" weight="999"/>
+		<edge from="e-1door2" to="n0door1" weight="999"/>
+		<edge from="e-1door2" to="n0door2" weight="999"/>
+		<edge from="e-1door2" to="p0door1" weight="999"/>
+		<edge from="e-1door2" to="v0door1" weight="999"/>
+
+		<edge from="e0door1" to="e0door2" weight="999"/>
+		<edge from="e0door1" to="f0door1" weight="999"/>
+		<edge from="e0door1" to="f0door2" weight="999"/>
+		<edge from="e0door1" to="f0door3" weight="999"/>
+		<edge from="e0door1" to="f0door4" weight="999"/>
+		<edge from="e0door1" to="f0door5" weight="999"/>
+		<edge from="e0door1" to="f1door1" weight="999"/>
+		<edge from="e0door1" to="h0door1" weight="999"/>
+		<edge from="e0door1" to="h0door2" weight="999"/>
+		<edge from="e0door1" to="h0door3" weight="999"/>
+		<edge from="e0door1" to="hz1door1" weight="999"/>
+		<edge from="e0door1" to="hz1door2" weight="999"/>
+		<edge from="e0door1" to="k1door1" weight="999"/>
+		<edge from="e0door1" to="m0door1" weight="999"/>
+		<edge from="e0door1" to="m0door2" weight="999"/>
+		<edge from="e0door1" to="m-1door1" weight="999"/>
+		<edge from="e0door1" to="n0door1" weight="999"/>
+		<edge from="e0door1" to="n0door2" weight="999"/>
+		<edge from="e0door1" to="p0door1" weight="999"/>
+		<edge from="e0door1" to="v0door1" weight="999"/>
+
+		<edge from="e0door2" to="f0door1" weight="999"/>
+		<edge from="e0door2" to="f0door2" weight="999"/>
+		<edge from="e0door2" to="f0door3" weight="999"/>
+		<edge from="e0door2" to="f0door4" weight="999"/>
+		<edge from="e0door2" to="f0door5" weight="999"/>
+		<edge from="e0door2" to="f1door1" weight="999"/>
+		<edge from="e0door2" to="h0door1" weight="999"/>
+		<edge from="e0door2" to="h0door2" weight="999"/>
+		<edge from="e0door2" to="h0door3" weight="999"/>
+		<edge from="e0door2" to="hz1door1" weight="999"/>
+		<edge from="e0door2" to="hz1door2" weight="999"/>
+		<edge from="e0door2" to="k1door1" weight="999"/>
+		<edge from="e0door2" to="m0door1" weight="999"/>
+		<edge from="e0door2" to="m0door2" weight="999"/>
+		<edge from="e0door2" to="m-1door1" weight="999"/>
+		<edge from="e0door2" to="n0door1" weight="999"/>
+		<edge from="e0door2" to="n0door2" weight="999"/>
+		<edge from="e0door2" to="p0door1" weight="999"/>
+		<edge from="e0door2" to="v0door1" weight="999"/>
+
+		<edge from="f0door1" to="f0door2" weight="999"/>
+		<edge from="f0door1" to="f0door3" weight="999"/>
+		<edge from="f0door1" to="f0door4" weight="999"/>
+		<edge from="f0door1" to="f0door5" weight="999"/>
+		<edge from="f0door1" to="f1door1" weight="999"/>
+		<edge from="f0door1" to="h0door1" weight="999"/>
+		<edge from="f0door1" to="h0door2" weight="999"/>
+		<edge from="f0door1" to="h0door3" weight="999"/>
+		<edge from="f0door1" to="hz1door1" weight="999"/>
+		<edge from="f0door1" to="hz1door2" weight="999"/>
+		<edge from="f0door1" to="k1door1" weight="999"/>
+		<edge from="f0door1" to="m0door1" weight="999"/>
+		<edge from="f0door1" to="m0door2" weight="999"/>
+		<edge from="f0door1" to="m-1door1" weight="999"/>
+		<edge from="f0door1" to="n0door1" weight="999"/>
+		<edge from="f0door1" to="n0door2" weight="999"/>
+		<edge from="f0door1" to="p0door1" weight="999"/>
+		<edge from="f0door1" to="v0door1" weight="999"/>
+
+		<edge from="f0door2" to="f0door3" weight="999"/>
+		<edge from="f0door2" to="f0door4" weight="999"/>
+		<edge from="f0door2" to="f0door5" weight="999"/>
+		<edge from="f0door2" to="f1door1" weight="999"/>
+		<edge from="f0door2" to="h0door1" weight="999"/>
+		<edge from="f0door2" to="h0door2" weight="999"/>
+		<edge from="f0door2" to="h0door3" weight="999"/>
+		<edge from="f0door2" to="hz1door1" weight="999"/>
+		<edge from="f0door2" to="hz1door2" weight="999"/>
+		<edge from="f0door2" to="k1door1" weight="999"/>
+		<edge from="f0door2" to="m0door1" weight="999"/>
+		<edge from="f0door2" to="m0door2" weight="999"/>
+		<edge from="f0door2" to="m-1door1" weight="999"/>
+		<edge from="f0door2" to="n0door1" weight="999"/>
+		<edge from="f0door2" to="n0door2" weight="999"/>
+		<edge from="f0door2" to="p0door1" weight="999"/>
+		<edge from="f0door2" to="v0door1" weight="999"/>
+
+		<edge from="f0door3" to="f0door4" weight="999"/>
+		<edge from="f0door3" to="f0door5" weight="999"/>
+		<edge from="f0door3" to="f1door1" weight="999"/>
+		<edge from="f0door3" to="h0door1" weight="999"/>
+		<edge from="f0door3" to="h0door2" weight="999"/>
+		<edge from="f0door3" to="h0door3" weight="999"/>
+		<edge from="f0door3" to="hz1door1" weight="999"/>
+		<edge from="f0door3" to="hz1door2" weight="999"/>
+		<edge from="f0door3" to="k1door1" weight="999"/>
+		<edge from="f0door3" to="m0door1" weight="999"/>
+		<edge from="f0door3" to="m0door2" weight="999"/>
+		<edge from="f0door3" to="m-1door1" weight="999"/>
+		<edge from="f0door3" to="n0door1" weight="999"/>
+		<edge from="f0door3" to="n0door2" weight="999"/>
+		<edge from="f0door3" to="p0door1" weight="999"/>
+		<edge from="f0door3" to="v0door1" weight="999"/>
+
+		<edge from="f0door4" to="f0door5" weight="999"/>
+		<edge from="f0door4" to="f1door1" weight="999"/>
+		<edge from="f0door4" to="h0door1" weight="999"/>
+		<edge from="f0door4" to="h0door2" weight="999"/>
+		<edge from="f0door4" to="h0door3" weight="999"/>
+		<edge from="f0door4" to="hz1door1" weight="999"/>
+		<edge from="f0door4" to="hz1door2" weight="999"/>
+		<edge from="f0door4" to="k1door1" weight="999"/>
+		<edge from="f0door4" to="m0door1" weight="999"/>
+		<edge from="f0door4" to="m0door2" weight="999"/>
+		<edge from="f0door4" to="m-1door1" weight="999"/>
+		<edge from="f0door4" to="n0door1" weight="999"/>
+		<edge from="f0door4" to="n0door2" weight="999"/>
+		<edge from="f0door4" to="p0door1" weight="999"/>
+		<edge from="f0door4" to="v0door1" weight="999"/>
+
+		<edge from="f0door5" to="f1door1" weight="999"/>
+		<edge from="f0door5" to="h0door1" weight="999"/>
+		<edge from="f0door5" to="h0door2" weight="999"/>
+		<edge from="f0door5" to="h0door3" weight="999"/>
+		<edge from="f0door5" to="hz1door1" weight="999"/>
+		<edge from="f0door5" to="hz1door2" weight="999"/>
+		<edge from="f0door5" to="k1door1" weight="999"/>
+		<edge from="f0door5" to="m0door1" weight="999"/>
+		<edge from="f0door5" to="m0door2" weight="999"/>
+		<edge from="f0door5" to="m-1door1" weight="999"/>
+		<edge from="f0door5" to="n0door1" weight="999"/>
+		<edge from="f0door5" to="n0door2" weight="999"/>
+		<edge from="f0door5" to="p0door1" weight="999"/>
+		<edge from="f0door5" to="v0door1" weight="999"/>
+
+		<edge from="f1door1" to="h0door1" weight="999"/>
+		<edge from="f1door1" to="h0door2" weight="999"/>
+		<edge from="f1door1" to="h0door3" weight="999"/>
+		<edge from="f1door1" to="hz1door1" weight="999"/>
+		<edge from="f1door1" to="hz1door2" weight="999"/>
+		<edge from="f1door1" to="k1door1" weight="999"/>
+		<edge from="f1door1" to="m0door1" weight="999"/>
+		<edge from="f1door1" to="m0door2" weight="999"/>
+		<edge from="f1door1" to="m-1door1" weight="999"/>
+		<edge from="f1door1" to="n0door1" weight="999"/>
+		<edge from="f1door1" to="n0door2" weight="999"/>
+		<edge from="f1door1" to="p0door1" weight="999"/>
+		<edge from="f1door1" to="v0door1" weight="999"/>
+
+		<edge from="h0door1" to="h0door2" weight="999"/>
+		<edge from="h0door1" to="h0door3" weight="999"/>
+		<edge from="h0door1" to="hz1door1" weight="999"/>
+		<edge from="h0door1" to="hz1door2" weight="999"/>
+		<edge from="h0door1" to="k1door1" weight="999"/>
+		<edge from="h0door1" to="m0door1" weight="999"/>
+		<edge from="h0door1" to="m0door2" weight="999"/>
+		<edge from="h0door1" to="m-1door1" weight="999"/>
+		<edge from="h0door1" to="n0door1" weight="999"/>
+		<edge from="h0door1" to="n0door2" weight="999"/>
+		<edge from="h0door1" to="p0door1" weight="999"/>
+		<edge from="h0door1" to="v0door1" weight="999"/>
+
+		<edge from="h0door2" to="h0door3" weight="999"/>
+        <edge from="h0door2" to="h0door3" weight="999"/>
+        <edge from="h0door2" to="hz1door1" weight="999"/>
+		<edge from="h0door2" to="hz1door2" weight="999"/>
+		<edge from="h0door2" to="k1door1" weight="999"/>
+		<edge from="h0door2" to="m0door1" weight="999"/>
+		<edge from="h0door2" to="m0door2" weight="999"/>
+		<edge from="h0door2" to="m-1door1" weight="999"/>
+        <edge from="h0door2" to="n0door1" weight="999"/>
+        <edge from="h0door2" to="n0door2" weight="999"/>
+        <edge from="h0door2" to="p0door1" weight="999"/>
+        <edge from="h0door2" to="v0door1" weight="999"/>
+
+        <edge from="h0door3" to="hz1door1" weight="999"/>
+        <edge from="h0door3" to="hz1door2" weight="999"/>
+        <edge from="h0door3" to="k1door1" weight="999"/>
+        <edge from="h0door3" to="m0door1" weight="999"/>
+        <edge from="h0door3" to="m0door2" weight="999"/>
+        <edge from="h0door3" to="m-1door1" weight="999"/>
+        <edge from="h0door3" to="n0door1" weight="999"/>
+        <edge from="h0door3" to="n0door2" weight="999"/>
+        <edge from="h0door3" to="p0door1" weight="999"/>
+        <edge from="h0door3" to="v0door1" weight="999"/>
+
+        <edge from="hz1door1" to="hz1door2" weight="999"/
+        <edge from="hz1door1" to="k1door1" weight="999"/>
+        <edge from="hz1door1" to="m0door1" weight="999"/>
+        <edge from="hz1door1" to="m0door2" weight="999"/>
+        <edge from="hz1door1" to="m-1door1" weight="999"/
+        <edge from="hz1door1" to="n0door1" weight="999"/>
+        <edge from="hz1door1" to="n0door2" weight="999"/>
+        <edge from="hz1door1" to="p0door1" weight="999"/>
+        <edge from="hz1door1" to="v0door1" weight="999"/>
+
+        <edge from="hz1door2" to="k1door1" weight="999"/>
+        <edge from="hz1door2" to="m0door1" weight="999"/>
+        <edge from="hz1door2" to="m0door2" weight="999"/>
+        <edge from="hz1door2" to="m-1door1" weight="999"/
+        <edge from="hz1door2" to="n0door1" weight="999"/>
+        <edge from="hz1door2" to="n0door2" weight="999"/>
+        <edge from="hz1door2" to="p0door1" weight="999"/>
+        <edge from="hz1door2" to="v0door1" weight="999"/>
+
+        <edge from="k1door1" to="m0door1" weight="999"/>
+        <edge from="k1door1" to="m0door2" weight="999"/>
+        <edge from="k1door1" to="m-1door1" weight="999"/>
+        <edge from="k1door1" to="n0door1" weight="999"/>
+        <edge from="k1door1" to="n0door2" weight="999"/>
+        <edge from="k1door1" to="p0door1" weight="999"/>
+        <edge from="k1door1" to="v0door1" weight="999"/>
+
+        <edge from="m0door1" to="m0door2" weight="999"/>
+        <edge from="m0door1" to="m-1door1" weight="999"/>
+        <edge from="m0door1" to="n0door1" weight="999"/>
+        <edge from="m0door1" to="n0door2" weight="999"/>
+        <edge from="m0door1" to="v0door1" weight="999"/>
+        <edge from="m0door1" to="p0door1" weight="999"/>
+
+        <edge from="m0door2" to="m-1door1" weight="999"/>
+        <edge from="m0door2" to="n0door1" weight="999"/>
+        <edge from="m0door2" to="n0door2" weight="999"/>
+        <edge from="m0door2" to="p0door1" weight="999"/>
+        <edge from="m0door2" to="v0door1" weight="999"/>
+
+        <edge from="m-1door1" to="n0door1" weight="999"/>
+        <edge from="m-1door1" to="n0door2" weight="999"/>
+        <edge from="m-1door1" to="p0door1" weight="999"/>
+        <edge from="m-1door1" to="v0door1" weight="999"/>
+
+        <edge from="n0door1" to="n0door2" weight="999"/>
+        <edge from="n0door1" to="p0door1" weight="999"/>
+        <edge from="n0door1" to="v0door1" weight="999"/>
+
+        <edge from="n0door2" to="p0door1" weight="999"/>
+        <edge from="n0door2" to="v0door1" weight="999"/>
+
+        <edge from="p0door1" to="v0door1" weight="999"/>		
+
+	</edges>
+
+</campus>
