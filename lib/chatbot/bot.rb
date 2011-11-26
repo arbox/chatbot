@@ -1,8 +1,9 @@
-require 'jabber/bot'
+require 'jabber/bot' # jabber-bot
 module Chatbot
   class Bot
     def initilize(config)
       @bot = Jabber::Bot.new(config)
+      @bot.read_commands
     end
 
     def connect
@@ -13,6 +14,10 @@ module Chatbot
       @bot.add_command(desc)
     end
     private
+    def read_commands
+      reader = Chatbot::ConfigReader.new(self)
+      reader.read
+    end
   end # Bot
 end # Chatbot
 # Configure a public bot
