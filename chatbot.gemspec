@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Andrei Beliankou"]
   s.email       = ["arbox@yandex.ru"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = 'summary'
+  s.description = 'description'
 
   s.rubyforge_project = "chatbot"
 
@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "jabber-bot"
 end

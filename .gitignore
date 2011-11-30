@@ -2,4 +2,8 @@
 .bundle
 Gemfile.lock
 pkg/*
+tmp
+test.rb
 ydoc
+bin/bot.sample
+etc/chatbot/bot.conf
