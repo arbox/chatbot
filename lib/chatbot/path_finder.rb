@@ -1,16 +1,14 @@
 
-
-
-
 # to do
 
-# buildGraph (file) - builds intern representation of given graph
+# findpath (start,finish) ...
 # verbalizePath (path) - constructs a fitting verbalization for a given path
 # Graph class less verbose
 #
 # (verbalizepath macht wahrscheinlich eine (noch genauere?) Typbestimmung der Knoten nötig)
 
 
+require 'readline'
 
 class PathFinder
 
@@ -20,21 +18,41 @@ class PathFinder
 
 
   def initialize ()
-    @campus 
+    @campus
   end
 
-  def buildgraph ()
+  def buildgraph (filepath)
     # de-serialize given graph and build a Graph-instance
-    # run dijkstra's algorithm on graph
-
+	
+    file = File.open(filepath)
     @campus = Graph.new
 
+    file.each { |line|
+		#print line
+		firstnode = line.match(/from="(.*)" to/)
+		secondnode = line.match(/to="(.*)" weight/)
+		weight = line.match(/weight="(.*)"\/>/)
+		if firstnode
+			if secondnode
+				if weight
+					#puts "first: "+firstnode[1]
+					#puts "second: "+secondnode[1]
+					#puts "weight: "+weight[1]
+					@campus.add_edge(firstnode[1],secondnode[1],weight[1])
+				end
+			end 
+		end
+		
+	#@campus.shownodes()
+	}
+	
   end
 
   def findpath (start,finish)
     # takes start and destination nodes, returns a path and a weight
+	# maybe (?) save computed start-nodes and their path-weights for further use
     @campus.shortest_path(start,finish)
-    # ... return-part
+    
   end
 
   def verbalizepath ()
@@ -51,13 +69,10 @@ end
 
 class Graph
 
-#
 # Graph realisiert den Graphen als Datenstruktur und stellt die möglichen Operationen
 # (shortest_path ist ergänzt, shortest_paths kann wahrscheinlich weg ... in jedem Fall muss aber sowieso dijkstra(s) zuerst
 # laufen, das wäre vielleicht besser ausgelagert (zB in findpath oder bereits beim Aufbauen))
 # (andererseits muss dijkstra unter Umständen für jeden Startknoten neu laufen ... bin mal gespannt auf die Rechenzeit.)
-#
-
 
 	# Constructor
 
@@ -92,25 +107,31 @@ class Graph
 		end
 	end
 
+	def shownodes ()
+		puts "my nodes :"
+		puts @nodes
+	end
+	
 	# based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 	def dijkstra(s)
 		@d = {}
 		@prev = {}
-
+		
 		@nodes.each do |i|
 			@d[i] = @INFINITY
 			@prev[i] = -1
 		end
-
+			
 		@d[s] = 0
 		q = @nodes.compact
+	
 		while (q.size > 0)
 			u = nil;
 			q.each do |min|
 				if (not u) or (@d[min] and @d[min] < @d[u])
 					u = min
-				end
+				end 
 			end
 			if (@d[u] == @INFINITY)
 				break
@@ -153,40 +174,20 @@ class Graph
 	end
 
 
-  def shortest_path(s,d)
+	def shortest_path(s,d)
 		@source = s
-    @dest = d
-    dijkstra s
+		@dest = d
+		dijkstra s
 		puts "Source: #{@source}"
-    puts "\nTarget: #{@dest}"
+		puts "\nTarget: #{@dest}"
 		print_path @dest
-    if @d[@dest] != @INFINITY
-				puts "\nDistance: #{@d[@dest]}"
-			else
-				puts "\nNO PATH"
-    end
+		if @d[@dest] != @INFINITY
+			puts "\nDistance: #{@d[@dest]}"
+		else
+			puts "\nNO PATH"
+		end
 	end
 
 end
-
-
-
-# testing shortest path algorithm
-
-
-if __FILE__ == $0
-	gr = Graph.new
-	gr.add_edge("a","b",5)
-	gr.add_edge("b","c",3)
-	gr.add_edge("c","d",1)
-	gr.add_edge("a","d",10)
-	gr.add_edge("b","d",2)
-	gr.add_edge("f","g",1)
-	gr.shortest_paths("a")
-  puts "\n------------------\n"
-  gr.print_path("c")
-  puts "\n------------------\n"
-  gr.shortest_path("a","d")
-  
 
 end

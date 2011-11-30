@@ -12,11 +12,8 @@
 <!-- Knotentypen: floor, door, stairs, elevator -->
 
 <!-- Kantenformat: knoten 1, knoten 2, gewicht -->
-<!-- Gewicht?? -->
+<!-- Gewichte?? -->
 <!-- Kantenanmerkungen: Nur zu best. Uhrzeit passierbar? Nur ohne Rucksack passierbar? Nur im Sommer empfehlenswert? -->
-
-<!-- weitere Gebäudeknoten?: Mensa F, Bib F? Hörsäle? -->
-
 
 
 <!-- noch unvollständig: -->
@@ -58,8 +55,8 @@
 		<node name="bs2" type="stairs" desc="Seitentreppenhaus"/> 
 		<node name="bs3" type="stairs" desc="Treppehnhaus bei der Caféteria"/>
 		<!-- Bibliothek -->
-		<node name="bib0" type="floor"/>
-		<node name="bib1" type="floor"/>
+		<node name="bib0" type="library"/>
+		<node name="bib1" type="library"/>
 		<node name="bib0door1" type="door"/>
 		<!-- C-Gebäude -->
 		<node name="c0" type="floor"/>
@@ -109,6 +106,8 @@
 		<node name="f0" type="floor"/>
 		<node name="f1" type="floor"/>
 		<node name="f2" type="floor"/>
+		<node name="fbib" type="library"/>
+		<node name="fmensa" type="mensa"/>
 		<node name="f0door1" type="door" desc="Haupteingang"/> 
 		<node name="f0door2" type="door" desc="Nordwesteingang"/> 
 		<node name="f0door3" type="door" desc="Westeingang"/>
@@ -147,7 +146,7 @@
 		<node name="k1door1" type="door"/>
 		<!-- Mensa/Audimax -->
 		<node name="m0" type="floor"/>
-		<node name="m-1" type="floor"/>
+		<node name="m-1" type="mensa"/>
 		<node name="m0door1" type="door" desc="Haupteingang"/> 
 		<node name="m0door2" type="door" desc="Seiteneingang"/> 
 		<node name="m-1door1" type="door" desc="Unterer Eingang"/> 
@@ -186,6 +185,7 @@
 		<node name="hs11" type="lecturehall"/>
 		<node name="hs12" type="lecturehall"/>
 		<node name="hs13" type="lecturehall"/>
+		<node name="audimax" type="lecturehall"/>
 		<!-- Sonstiges -->
 		<!-- zB Bushaltestellen, Toiletten, Sportplätze, Geschäfte? -->
 	</nodes>
@@ -212,6 +212,9 @@
 		<edge from="a3" to="as1" weight="1"/>
 		<edge from="a4" to="ae1" weight="1"/>
 		<edge from="a4" to="as1" weight="1"/>
+		
+		<edge from="bib0" to="bib0door1" weight="1"/>
+		<edge from="bib0" to="bib1" weight="1"/>
 		
 		<edge from="b0" to="b0door1" weight="1"/>
 		<edge from="b0" to="b0door2" weight="1"/>
@@ -305,6 +308,8 @@
 		<edge from="f0" to="f0door3" weight="1"/>
 		<edge from="f0" to="f0door4" weight="1"/>
 		<edge from="f0" to="f0door5" weight="1"/>
+		<edge from="f0" to="fbib" weight="1"/>
+		<edge from="f0" to="fmensa" weight="1"/>
 		<edge from="f0" to="h0" weight="1"/>
 		<edge from="f0" to="fs1" weight="1"/>
 		<edge from="f0" to="fs2" weight="1"/>
@@ -379,6 +384,7 @@
 		<edge from="m0" to="m0door1" weight="1"/>
 		<edge from="m0" to="m0door2" weight="1"/>
 		<edge from="m0" to="ms1" weight="1"/>
+		<edge from="m0" to="audimax" weight="1"/>
 		<edge from="m-1" to="ms1" weight="1"/>
 		<edge from="m-1" to="m-1door1" weight="1"/>
 		
