@@ -7,7 +7,7 @@ class TestPathFinder < Test::Unit::TestCase
 #  include TestHelper
   
   def setup
-    # @finder = Chatbot::PathFinder.new(file)
+    @finder = Chatbot::PathFinder.new(file)
   end
 
   def teardown
@@ -15,7 +15,11 @@ class TestPathFinder < Test::Unit::TestCase
   end
 
   def test_shortest_pat
-    #@finder.xxx
+    path = @finder.path_finder("a0","b2")
+    assert(path.is_a?(Array))
+    assert(path.any?)
+    answer = ["a0","b0","bs1","b2"] # richtigen Pfad finden
+    assert_equal(answer,path)
     #assert()
     #assert_match
     #asser_equal
