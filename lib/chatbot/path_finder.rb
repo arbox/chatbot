@@ -20,10 +20,10 @@ class PathFinder
 
   def initialize(filepath)
     @campus = Graph.new
-    buildgraph(filepath)
+    build_graph(filepath)
   end
 
-  def buildgraph(filepath)
+  def build_graph(filepath)
     # de-serialize given graph and build a Graph-instance
     file = File.open(filepath)
 
