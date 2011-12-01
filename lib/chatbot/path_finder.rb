@@ -46,14 +46,14 @@ class PathFinder
     #@campus.shownodes()	
   end
 
-  def findpath(start,finish)
+  def find_path(start,finish)
     # takes start and destination nodes, returns a path and a weight
     # maybe (?) save computed start-nodes and their path-weights for further use
     @campus.shortest_path(start,finish)
     
   end
 
-  def verbalizepath()
+  def verbalize_path()
     # takes a path, returns a natural-language-description of given path
   end
 
@@ -108,79 +108,79 @@ class Graph
 	
   # based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
-	def dijkstra(s)
-		@d = {}
-		@prev = {}
-		
-		@nodes.each do |i|
-			@d[i] = @INFINITY
-			@prev[i] = -1
-		end
-			
-		@d[s] = 0
-		q = @nodes.compact
-	
-		while (q.size > 0)
-			u = nil;
-			q.each do |min|
-				if (not u) or (@d[min] and @d[min] < @d[u])
-					u = min
-				end 
-			end
-			if (@d[u] == @INFINITY)
-				break
-			end
-			q = q - [u]
-			@g[u].keys.each do |v|
-				alt = @d[u] + @g[u][v]
-				if (alt < @d[v])
-					@d[v] = alt
-					@prev[v]  = u
-				end
-			end
-		end
-	end
+  def dijkstra(s)
+    @d = {}
+    @prev = {}
 
-	# To print the full shortest route to a node
+    @nodes.each do |i|
+      @d[i] = @INFINITY
+      @prev[i] = -1
+    end
 
-	def print_path(dest)
-		if @prev[dest] != -1
-			print_path @prev[dest]
-		end
-		print ">#{dest}"
-	end
+    @d[s] = 0
+    q = @nodes.compact
+    
+    while (q.size > 0)
+      u = nil;
+      q.each do |min|
+        if (not u) or (@d[min] and @d[min] < @d[u])
+          u = min
+        end 
+      end
+      if (@d[u] == @INFINITY)
+        break
+      end
+      q = q - [u]
+      g[u].keys.each do |v|
+        alt = @d[u] + @g[u][v]
+        if (alt < @d[v])
+          @d[v] = alt
+          @prev[v]  = u
+        end
+      end
+    end
+  end
 
-	# Gets all shortests paths using dijkstra
+  # To print the full shortest route to a node
 
-	def shortest_paths(s)
-		@source = s
-		dijkstra s
-		puts "Source: #{@source}"
-		@nodes.each do |dest|
-			puts "\nTarget: #{dest}"
-			print_path dest
-			if @d[dest] != @INFINITY
-				puts "\nDistance: #{@d[dest]}"
-			else
-				puts "\nNO PATH"
-			end
-		end
-	end
+  def print_path(dest)
+    if @prev[dest] != -1
+      print_path @prev[dest]
+    end
+    print ">#{dest}"
+  end
+
+# Gets all shortests paths using dijkstra
+
+  def shortest_paths(s)
+    @source = s
+    dijkstra s
+    puts "Source: #{@source}"
+    @nodes.each do |dest|
+    puts "\nTarget: #{dest}"
+    print_path dest
+    if @d[dest] != @INFINITY
+      puts "\nDistance: #{@d[dest]}"
+    else
+      puts "\nNO PATH"
+    end
+    end
+  end
 
 
-	def shortest_path(s,d)
-		@source = s
-		@dest = d
-		dijkstra s
-		puts "Source: #{@source}"
-		puts "\nTarget: #{@dest}"
-		print_path @dest
-		if @d[@dest] != @INFINITY
-			puts "\nDistance: #{@d[@dest]}"
-		else
-			puts "\nNO PATH"
-		end
-	end
+  def shortest_path(s,d)
+    @source = s
+    @dest = d
+    dijkstra s
+    puts "Source: #{@source}"
+    puts "\nTarget: #{@dest}"
+    print_path @dest
+    if @d[@dest] != @INFINITY
+      puts "\nDistance: #{@d[@dest]}"
+    else
+      puts "\nNO PATH"
+    end
+  end
 
 end
 
