@@ -101,7 +101,7 @@ class Graph
     end
   end
 
-  def shownodes ()
+  def shownodes()
     puts "my nodes :"
     puts @nodes
   end
