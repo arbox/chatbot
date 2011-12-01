@@ -1,5 +1,5 @@
 module Chatbot
-  #Klasse zum einlesen von Konfigurationsdateien im YAML-Format.
+  #Klasse zum Einlesen von Konfigurationsdateien im YAML-Format.
   
   class ConfigReader
     def initialize(bot)
@@ -9,9 +9,9 @@ module Chatbot
 		@configfiles = ["abschied.yml"]
     end #end def initialize
 	
-	#Iteriert über alle Dateien und erstellt Befehle für den Bot.
+	#Iteriert Ã¼ber alle Dateien und erstellt Befehle fÃ¼r den Bot.
 	#Die Befehle selbst reagieren auf den RegExp-Teil der aus den YAML-Dateien
-	#ausgelesenen Zeilen. Der Rückgabewert ist jeweils der definierte Wert als 
+	#ausgelesenen Zeilen. Der RÃ¼ckgabewert ist jeweils der definierte Wert als 
 	#einfacher String innerhalb der YAML-Datei.
 	def read()		
 		@configfiles.each do |filename|
@@ -27,6 +27,6 @@ module Chatbot
 			end			
 		end
 	end #end def read
-  end #end Class
+  end #end class
   
 end
