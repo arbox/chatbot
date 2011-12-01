@@ -85,13 +85,13 @@ class Graph
       @g[s][t] = w
     end
 
-  # Begin code for non directed graph (inserts the other edge too)
+    # Begin code for non directed graph (inserts the other edge too)
     if (not @g.has_key?(t))
       @g[t] = {s=>w}
     else
       @g[t][s] = w
     end
-  # End code for non directed graph (ie. deleteme if you want it directed)
+    # End code for non directed graph (ie. deleteme if you want it directed)
     
     if (not @nodes.include?(s))
       @nodes << s
@@ -157,13 +157,13 @@ class Graph
     dijkstra s
     puts "Source: #{@source}"
     @nodes.each do |dest|
-    puts "\nTarget: #{dest}"
-    print_path dest
-    if @d[dest] != @INFINITY
-      puts "\nDistance: #{@d[dest]}"
-    else
-      puts "\nNO PATH"
-    end
+      puts "\nTarget: #{dest}"
+      print_path dest
+      if @d[dest] != @INFINITY
+        puts "\nDistance: #{@d[dest]}"
+      else
+        puts "\nNO PATH"
+      end
     end
   end
 
