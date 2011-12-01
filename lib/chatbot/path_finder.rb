@@ -1,4 +1,3 @@
-
 # to do
 
 # findpath (start,finish) ...
@@ -10,6 +9,8 @@
 
 require 'readline'
 
+module Chatbot
+
 class PathFinder
 
 # PathFinder wandelt den gespeicherten Campusgraphen in ein für den Algorithmus verwertbares Format um (buildgraph),
@@ -17,47 +18,43 @@ class PathFinder
 # setzt diesen Pfad in eine passende natürlichsprachliche Beschreibung um (verbalizepath)
 
 
-  def initialize ()
-    @campus
+  def initialize(filepath)
+    @campus = Graph.new
+    buildgraph(filepath)
   end
 
-  def buildgraph (filepath)
+  def buildgraph(filepath)
     # de-serialize given graph and build a Graph-instance
-	
     file = File.open(filepath)
-    @campus = Graph.new
 
     file.each { |line|
-		#print line
-		firstnode = line.match(/from="(.*)" to/)
-		secondnode = line.match(/to="(.*)" weight/)
-		weight = line.match(/weight="(.*)"\/>/)
-		if firstnode
-			if secondnode
-				if weight
-					#puts "first: "+firstnode[1]
-					#puts "second: "+secondnode[1]
-					#puts "weight: "+weight[1]
-					@campus.add_edge(firstnode[1],secondnode[1],weight[1])
-				end
-			end 
-		end
-		
-	#@campus.shownodes()
-	}
-	
+      #print line
+      firstnode = line.match(/from="(.*)" to/)
+      secondnode = line.match(/to="(.*)" weight/)
+      weight = line.match(/weight="(.*)"\/>/)
+      if firstnode
+        if secondnode
+          if weight
+            #puts "first: "+firstnode[1]
+            #puts "second: "+secondnode[1]
+            #puts "weight: "+weight[1]
+            @campus.add_edge(firstnode[1],secondnode[1],weight[1])
+          end
+        end 
+      end
+    }
+    #@campus.shownodes()	
   end
 
-  def findpath (start,finish)
+  def findpath(start,finish)
     # takes start and destination nodes, returns a path and a weight
-	# maybe (?) save computed start-nodes and their path-weights for further use
+    # maybe (?) save computed start-nodes and their path-weights for further use
     @campus.shortest_path(start,finish)
     
   end
 
-  def verbalizepath ()
+  def verbalizepath()
     # takes a path, returns a natural-language-description of given path
-
   end
 
 end
@@ -74,45 +71,42 @@ class Graph
 # laufen, das wäre vielleicht besser ausgelagert (zB in findpath oder bereits beim Aufbauen))
 # (andererseits muss dijkstra unter Umständen für jeden Startknoten neu laufen ... bin mal gespannt auf die Rechenzeit.)
 
-	# Constructor
+  # Constructor
+  def initialize
+    @g = {} # the graph // {node => { edge1 => weight, edge2 => weight}, node2 => ...
+    @nodes = Array.new
+    @INFINITY = 1 << 64
+  end
 
-	def initialize
-		@g = {}	 # the graph // {node => { edge1 => weight, edge2 => weight}, node2 => ...
-		@nodes = Array.new
-		@INFINITY = 1 << 64
-	end
+  def add_edge(s,t,w) # s= source, t= target, w= weight
+    if (not @g.has_key?(s))
+      @g[s] = {t=>w}
+    else
+      @g[s][t] = w
+    end
 
-	def add_edge(s,t,w) 		# s= source, t= target, w= weight
-		if (not @g.has_key?(s))
-			@g[s] = {t=>w}
-		else
-			@g[s][t] = w
-		end
+  # Begin code for non directed graph (inserts the other edge too)
+    if (not @g.has_key?(t))
+      @g[t] = {s=>w}
+    else
+      @g[t][s] = w
+    end
+  # End code for non directed graph (ie. deleteme if you want it directed)
+    
+    if (not @nodes.include?(s))
+      @nodes << s
+    end
+    if (not @nodes.include?(t))
+      @nodes << t
+    end
+  end
 
-		# Begin code for non directed graph (inserts the other edge too)
-
-		if (not @g.has_key?(t))
-			@g[t] = {s=>w}
-		else
-			@g[t][s] = w
-		end
-
-		# End code for non directed graph (ie. deleteme if you want it directed)
-
-		if (not @nodes.include?(s))
-			@nodes << s
-		end
-		if (not @nodes.include?(t))
-			@nodes << t
-		end
-	end
-
-	def shownodes ()
-		puts "my nodes :"
-		puts @nodes
-	end
+  def shownodes ()
+    puts "my nodes :"
+    puts @nodes
+  end
 	
-	# based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
+  # based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 	def dijkstra(s)
 		@d = {}
