@@ -7,6 +7,10 @@ module Chatbot
     def initialize(config)
       @bot = Jabber::Bot.new(config)
       read_commands()
+	  
+	  #Laden der Antworten 
+	  @lines_say_tschuess = YAML.load_file("chatbot/answers_say_tschuess.yml")
+	  @lines_can_i_help = YAML.load_file("chatbot/answers_can_i_help.yml")  
     end
 
     def connect
@@ -32,18 +36,13 @@ module Chatbot
     end
 	
 	#Methode zum Verabschieden (Dummy?)
-	def say_tschuess
-	  lines = ['Tschuessikowski!', 'Astalavista, Baby!']
-	  
-	  return lines[rand(lines.length)]
+	def say_tschuess 
+	  return @lines_say_tschuess[rand(@lines_say_tschuess.length)]
 	end
 	
 	#Methode für die Frage, wie geholfen werden kann (Dummy?)
 	def can_i_help
-	  #Array mit Dingen, die der Bot sagen kann
-	  lines = ['Wie kann ich helfen?', 'Was gibts?', 'Und jetzt?']
-	  
-	  return lines[rand(lines.length)]
+	  return @lines_can_i_help[rand(@lines_can_i_help.length)]
 	end
 	
 	#Methode, die über den Pathfinder den Weg erfragt und ausgibt
