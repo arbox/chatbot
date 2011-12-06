@@ -1,61 +1,56 @@
+require 'rubygems'
 require 'jabber/bot' # jabber-bot
+require 'chatbot/config_reader'
+
 module Chatbot
   class Bot
-    def initilize(config)
+    def initialize(config)
       @bot = Jabber::Bot.new(config)
-      @bot.read_commands
+      read_commands()
     end
 
     def connect
       @bot.connect
     end
-
-    def add_command(desc)
+	
+	#Diese Methode scheint nicht zu funktionieren (weil der Command zwar erstellt wird, aber 
+	#ohne Methodenrumpf)
+	def add_command(desc)
       @bot.add_command(desc)
     end
-    private
-    def read_commands
+	
+	#Über den Bot kann die obige add_command umgangen werden (mag unsauber sein, läuft aber)
+	def get_bot
+	  return @bot
+	end
+    
+	def read_commands
       reader = Chatbot::ConfigReader.new(self)
-      reader.read
+      reader.read()
+	  
+	  reader.teach()
     end
+	
+	#Methode zum Verabschieden (Dummy?)
+	def say_tschuess
+	  lines = ['Tschuessikowski!', 'Astalavista, Baby!']
+	  
+	  return lines[rand(lines.length)]
+	end
+	
+	#Methode für die Frage, wie geholfen werden kann (Dummy?)
+	def can_i_help
+	  #Array mit Dingen, die der Bot sagen kann
+	  lines = ['Wie kann ich helfen?', 'Was gibts?', 'Und jetzt?']
+	  
+	  return lines[rand(lines.length)]
+	end
+	
+	#Methode, die über den Pathfinder den Weg erfragt und ausgibt
+	#
+	#DUMMY
+	def answer_question
+	  return "Dein Weg lautet: 42! Nutze dies Wissen wahrlich weise."
+	end
   end # Bot
 end # Chatbot
-# Configure a public bot
-
-__END__
-
-
-# Create a new bot
-bot = Jabber::Bot.new(config)
-
-# Give the bot a private command, 'puts', with a response message
-bot.add_command(
-  :syntax      => 'puts <string>',
-  :description => 'Write something to $stdout',
-  :regex       => /^puts\s+(.+)$/
-) do |sender, message|
-  puts "#{sender} says '#{message}'"
-  "'#{message}' written to $stdout"
-end
-
-# Give the bot another private command, 'puts!', without a response message
-bot.add_command(
-  :syntax      => 'puts! <string>',
-  :description => 'Write something to $stdout',
-  :regex       => /^puts!\s+(.+)$/
-) do |sender, message|
-  puts "#{sender} says '#{message}'"
-  nil
-end
-
-# Give the bot a public command, 'rand', with alias 'r'
-bot.add_command(
-  :syntax      => 'rand',
-  :description => 'Produce a random number from 0 to 10',
-  :regex       => /^rand$/,
-  :alias       => [:syntax => 'r', :regex => /^r$/],
-  :is_public   => true
-) { rand(10).to_s }
-
-# Unleash the bot
-bot.connect
