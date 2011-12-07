@@ -149,6 +149,15 @@ class Graph
     end
     print ">#{dest}"
   end
+  
+  # To get a string with the shortest route to a node
+  
+  def get_path(dest,path)
+    if @prev[dest] != -1
+      path += get_path(@prev[dest],"")
+    end
+    path += ">#{dest}"
+  end
 
 # Gets all shortests paths using dijkstra
 
