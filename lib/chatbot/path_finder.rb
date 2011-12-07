@@ -38,7 +38,7 @@ class PathFinder
             #puts "first: "+firstnode[1]
             #puts "second: "+secondnode[1]
             #puts "weight: "+weight[1]
-            @campus.add_edge(firstnode[1],secondnode[1],weight[1])
+            @campus.add_edge(firstnode[1],secondnode[1],Float(weight[1]))
           end
         end 
       end
