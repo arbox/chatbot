@@ -47,9 +47,10 @@ class PathFinder
   end
 
   def find_path(start,finish)
-    # takes start and destination nodes, returns a path and a weight
+    # takes start and destination nodes, returns an array: pos 0 - weight, following positions: nodes from start to finish
     # maybe (?) save computed start-nodes and their path-weights for further use
-    @campus.shortest_path(start,finish)
+    path = @campus.shortest_path(start,finish)
+    puts path
     
   end
 
@@ -181,13 +182,15 @@ class Graph
     @source = s
     @dest = d
     dijkstra s
-    puts "Source: #{@source}"
-    puts "\nTarget: #{@dest}"
-    print_path @dest
     if @d[@dest] != @INFINITY
-      puts "\nDistance: #{@d[@dest]}"
+      # compute path-array
+      path = get_path(@dest,"")
+      pathnodes = path.split(">")
+      pathnodes[0] = @d[@dest]
+      pathnodes
     else
-      puts "\nNO PATH"
+      # no path, return nil
+      nil
     end
   end
 
