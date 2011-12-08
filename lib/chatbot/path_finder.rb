@@ -49,6 +49,7 @@ class PathFinder
   def find_path(start,finish)
     # takes start and destination nodes, returns an array: pos 0 - weight, following positions: nodes from start to finish
     # maybe (?) save computed start-nodes and their path-weights for further use
+    # aus aktuellem Anlass: Möglichkeit, alternative Route zu finden, einbauen? Knoten, die nicht gewählt werden sollen, festlegen?
     path = @campus.shortest_path(start,finish)
     puts path
     
