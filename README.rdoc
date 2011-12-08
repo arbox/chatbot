@@ -1,1 +1,15 @@
-A simple chatbot which can answer question on the University of Trier.
+// Universität Trier - WS 2011/2012 - LDV - Dialogsysteme
+
+Eng:
+This is a simple chatbot which can answer questions on the University of Trier.
+It reacts to simple user inputs regarding where the user wants to go. 
+Additionally the chatbot requires information about user's current location.
+The User can choose between the shortest way and one with certain stopovers.
+
+
+De:
+Der Chatbot ist ein einfacher Guide für den Campus der Universität Trier.
+Er reagiert auf einfache Benutzereingaben bezüglich der Anfrage eines Weges.
+Hierfür erfragt er zusätzlich den aktuellen Standort und gibt den kürzesten Weg zum gewünschten Ziel aus.
+Wahlweise ist auch ein Weg mit bestimmten Zwischenhalten möglich.
+
