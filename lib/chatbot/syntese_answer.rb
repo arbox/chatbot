@@ -5,7 +5,7 @@ module Chatbot
 		end
 
 		def result()
-			return "von: " + @arr[0] + ", nach: " + @arr[1]
+			return @arr.inspect
 		end
 	end
 end

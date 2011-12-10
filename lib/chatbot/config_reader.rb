@@ -37,6 +37,7 @@ module Chatbot
 					:regex       => Regexp.new(key, Regexp::IGNORECASE),
 					:is_public   => true
 				) do |sender, params, msg|
+					puts "Hit: #{key}"
 					@bot.answer_question(sender, msg)
 				  end
 			elsif @bot.respond_to?(meth)
@@ -45,14 +46,18 @@ module Chatbot
 					:description => "reacts on RegExp /#{key}/, invoking the Method: #{meth}",
 					:regex       => Regexp.new(key, Regexp::IGNORECASE),
 					:is_public   => true
-				) { @bot.method(meth).call() }
+				) { puts "Hit: #{key}"
+				    @bot.method(meth).call() 
+				  }
 			else
 				@bot.get_bot.add_command(
 					:syntax      => key,
 					:description => "reacts on RegExp /#{key}/, returing the String: #{meth}",
 					:regex       => Regexp.new(key, Regexp::IGNORECASE),
 					:is_public   => true
-				) { meth }			
+				) { puts "Hit: #{key}"
+				    meth 
+				  }			
 			end
 	    end		
 	end #end def teach

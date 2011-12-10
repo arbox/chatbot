@@ -11,6 +11,9 @@ module Chatbot
       @bot = Jabber::Bot.new(config)
       read_commands()
 	  
+	  #Initialisieren des PathFinder mit Graphen
+	  @this_path_finder = Chatbot::PathFinder.new("lib/chatbot/campusgraph.xml")
+	  
 	  #Laden der Antworten 
 	  @lines_say_tschuess = YAML.load_file("etc/chatbot/answers_say_tschuess.yml")
 	  @lines_can_i_help = YAML.load_file("etc/chatbot/answers_can_i_help.yml")  
@@ -62,7 +65,7 @@ module Chatbot
         return "Leider konnte ich nur deinen Startort erkennen: #{aq.result[0]}. Bitte formuliere die Anfrage nochmal in folgendem Format: von ... nach ..."
 	  end
 	  	  
-	  sa = SynteseAnswer.new(aq.result)	  
+	  sa = SynteseAnswer.new(@this_path_finder.find_path(aq.result[0], aq.result[1]))	  
 	  return sa.result
 	end
   end # Bot

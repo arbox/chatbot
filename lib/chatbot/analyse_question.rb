@@ -5,7 +5,7 @@ module Chatbot
 		end
 		
 		def result()
-			return ["Bib", "Mensa"]
+			return ["a0", "b2"]
 		end
 	end
 end
