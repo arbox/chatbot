@@ -45,7 +45,7 @@ module Chatbot
 					:description => "reacts on RegExp /#{key}/, invoking the Method: #{meth}",
 					:regex       => Regexp.new(key, Regexp::IGNORECASE),
 					:is_public   => true
-				) { @bot.method(meth).call }
+				) { @bot.method(meth).call() }
 			else
 				@bot.get_bot.add_command(
 					:syntax      => key,
