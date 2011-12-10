@@ -27,7 +27,7 @@
 #++
 
 require 'rubygems'
-require 'xmpp4r-simple'
+require 'chatbot/my_xmpp4r-simple'
 
 module Jabber
 
