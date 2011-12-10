@@ -1,4 +1,5 @@
 ---
-"wurst" : "can_i_help"
-"bye" : "say_tschuess"
-"wo" : "answer_question"
+"^test_wurst$" : "can_i_help"
+"^test_bye$" : "say_tschuess"
+"^test_wo$" : "answer_question"
+"^test_quark$" : "Quark ist kein Joghurt"
