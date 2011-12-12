@@ -1,12 +1,12 @@
 # Begrüßung
-/(H(i|allo|uhu) |Guten|(moin)*)/i: 'can_i_help'
+"(H(i|allo|uhu) |Guten|(moin)+)": 'can_i_help'
 
 # Fragen des Benutzers
-/\?/i: 'can_i_help'
+"\?": 'can_i_help'
 
 
-/(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)/i: 'answer_question'
-/(((ich bin).+(ORTSANGABE))?.+) | (Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)/i: 'answer_question'
+"(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)": 'answer_question'
+"((ich bin ).*)|(Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)": 'answer_question'
 
 # ist die Abfrage des aktuellen Ortes nötig oder reicht die Wegbeschreibung?
 
@@ -18,20 +18,21 @@
 
 
 # nicht passende Usereingaben --> enorm ausbaufähig!
-/(Sag du es mir|Ich weiß nicht)/i: 'can_i_help'
-/(Wo bin ich)/i: 'can_i_help'
+"(Sag du es mir|Ich wei. nicht)": 'can_i_help'
+"(Wo bin ich)": 'can_i_help'
 
-/(ja|jep+|jo|yes+)/i: 'can_i_help'
+"(ja|jep+|jo|yes+)": 'can_i_help'
 # ...oder gibt es weitere Möglichkeiten, auf die mit "ja" geantwortet werden kann?
 
 # Ablehnung führt zu Verabschiedung
-/(nein|nö|no|nope)/i: 'say_tschuess'
+"(nein|no|noe|nope)": 'say_tschuess'
 
 #Verabschiedung
-/(Tschüssi?|tschau|ciao|adios|machs gut|(good)?bye|auf wieder)/i: 'say_tschuess'
+"(Tsch.ssi?|tschau|ciao|adios|machs gut|(good)?bye|auf wieder)": 'say_tschuess'
 
 
 
 #(b = can_i_help; w = answer_question)
 
-/(Wie komme| Wie finde|...)(.+)/\i: answer_question # für (.+) Ortsangabe 
+"(Wie komme|Wie finde)(.+)": answer_question 
+# für (.+) Ortsangabe 

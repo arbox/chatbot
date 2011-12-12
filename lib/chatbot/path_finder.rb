@@ -51,7 +51,7 @@ class PathFinder
     # maybe (?) save computed start-nodes and their path-weights for further use
     path = @campus.shortest_path(start,finish)
     puts path
-    
+    return path
   end
 
   def verbalize_path()
@@ -132,7 +132,7 @@ class Graph
         break
       end
       q = q - [u]
-      g[u].keys.each do |v|
+      @g[u].keys.each do |v|
         alt = @d[u] + @g[u][v]
         if (alt < @d[v])
           @d[v] = alt
