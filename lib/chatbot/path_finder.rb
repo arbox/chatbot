@@ -1,3 +1,11 @@
+# to do
+
+# findpath (start,finish) ...
+# verbalizePath (path) - constructs a fitting verbalization for a given path
+# Graph class less verbose
+#
+# (verbalizepath macht wahrscheinlich eine (noch genauere?) Typbestimmung der Knoten nötig)
+
 
 require 'readline'
 
