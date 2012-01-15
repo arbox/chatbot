@@ -1,4 +1,3 @@
-
 # to do
 
 # findpath (start,finish) ...
@@ -10,6 +9,8 @@
 
 require 'readline'
 
+module Chatbot
+
 class PathFinder
 
 # PathFinder wandelt den gespeicherten Campusgraphen in ein für den Algorithmus verwertbares Format um (buildgraph),
@@ -17,47 +18,44 @@ class PathFinder
 # setzt diesen Pfad in eine passende natürlichsprachliche Beschreibung um (verbalizepath)
 
 
-  def initialize ()
-    @campus
+  def initialize(filepath)
+    @campus = Graph.new
+    build_graph(filepath)
   end
 
-  def buildgraph (filepath)
+  def build_graph(filepath)
     # de-serialize given graph and build a Graph-instance
-	
     file = File.open(filepath)
-    @campus = Graph.new
 
     file.each { |line|
-		#print line
-		firstnode = line.match(/from="(.*)" to/)
-		secondnode = line.match(/to="(.*)" weight/)
-		weight = line.match(/weight="(.*)"\/>/)
-		if firstnode
-			if secondnode
-				if weight
-					#puts "first: "+firstnode[1]
-					#puts "second: "+secondnode[1]
-					#puts "weight: "+weight[1]
-					@campus.add_edge(firstnode[1],secondnode[1],weight[1])
-				end
-			end 
-		end
-		
-	#@campus.shownodes()
-	}
-	
+      #print line
+      firstnode = line.match(/from="(.*)" to/)
+      secondnode = line.match(/to="(.*)" weight/)
+      weight = line.match(/weight="(.*)"\/>/)
+      if firstnode
+        if secondnode
+          if weight
+            #puts "first: "+firstnode[1]
+            #puts "second: "+secondnode[1]
+            #puts "weight: "+weight[1]
+            @campus.add_edge(firstnode[1],secondnode[1],Float(weight[1]))
+          end
+        end 
+      end
+    }
+    #@campus.shownodes()	
   end
 
-  def findpath (start,finish)
-    # takes start and destination nodes, returns a path and a weight
-	# maybe (?) save computed start-nodes and their path-weights for further use
-    @campus.shortest_path(start,finish)
-    
+  def find_path(start,finish)
+    # takes start and destination nodes, returns an array: pos 0 - weight, following positions: nodes from start to finish
+    # maybe (?) save computed start-nodes and their path-weights for further use
+    path = @campus.shortest_path(start,finish)
+    puts path
+    return path
   end
 
-  def verbalizepath ()
+  def verbalize_path()
     # takes a path, returns a natural-language-description of given path
-
   end
 
 end
@@ -74,119 +72,127 @@ class Graph
 # laufen, das wäre vielleicht besser ausgelagert (zB in findpath oder bereits beim Aufbauen))
 # (andererseits muss dijkstra unter Umständen für jeden Startknoten neu laufen ... bin mal gespannt auf die Rechenzeit.)
 
-	# Constructor
+  # Constructor
+  def initialize
+    @g = {} # the graph // {node => { edge1 => weight, edge2 => weight}, node2 => ...
+    @nodes = Array.new
+    @INFINITY = 1 << 64
+  end
 
-	def initialize
-		@g = {}	 # the graph // {node => { edge1 => weight, edge2 => weight}, node2 => ...
-		@nodes = Array.new
-		@INFINITY = 1 << 64
-	end
+  def add_edge(s,t,w) # s= source, t= target, w= weight
+    if (not @g.has_key?(s))
+      @g[s] = {t=>w}
+    else
+      @g[s][t] = w
+    end
 
-	def add_edge(s,t,w) 		# s= source, t= target, w= weight
-		if (not @g.has_key?(s))
-			@g[s] = {t=>w}
-		else
-			@g[s][t] = w
-		end
+    # Begin code for non directed graph (inserts the other edge too)
+    if (not @g.has_key?(t))
+      @g[t] = {s=>w}
+    else
+      @g[t][s] = w
+    end
+    # End code for non directed graph (ie. deleteme if you want it directed)
+    
+    if (not @nodes.include?(s))
+      @nodes << s
+    end
+    if (not @nodes.include?(t))
+      @nodes << t
+    end
+  end
 
-		# Begin code for non directed graph (inserts the other edge too)
-
-		if (not @g.has_key?(t))
-			@g[t] = {s=>w}
-		else
-			@g[t][s] = w
-		end
-
-		# End code for non directed graph (ie. deleteme if you want it directed)
-
-		if (not @nodes.include?(s))
-			@nodes << s
-		end
-		if (not @nodes.include?(t))
-			@nodes << t
-		end
-	end
-
-	def shownodes ()
-		puts "my nodes :"
-		puts @nodes
-	end
+  def shownodes()
+    puts "my nodes :"
+    puts @nodes
+  end
 	
-	# based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
+  # based of wikipedia's pseudocode: http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
-	def dijkstra(s)
-		@d = {}
-		@prev = {}
-		
-		@nodes.each do |i|
-			@d[i] = @INFINITY
-			@prev[i] = -1
-		end
-			
-		@d[s] = 0
-		q = @nodes.compact
-	
-		while (q.size > 0)
-			u = nil;
-			q.each do |min|
-				if (not u) or (@d[min] and @d[min] < @d[u])
-					u = min
-				end 
-			end
-			if (@d[u] == @INFINITY)
-				break
-			end
-			q = q - [u]
-			@g[u].keys.each do |v|
-				alt = @d[u] + @g[u][v]
-				if (alt < @d[v])
-					@d[v] = alt
-					@prev[v]  = u
-				end
-			end
-		end
-	end
+  def dijkstra(s)
+    @d = {}
+    @prev = {}
 
-	# To print the full shortest route to a node
+    @nodes.each do |i|
+      @d[i] = @INFINITY
+      @prev[i] = -1
+    end
 
-	def print_path(dest)
-		if @prev[dest] != -1
-			print_path @prev[dest]
-		end
-		print ">#{dest}"
-	end
+    @d[s] = 0
+    q = @nodes.compact
+    
+    while (q.size > 0)
+      u = nil;
+      q.each do |min|
+        if (not u) or (@d[min] and @d[min] < @d[u])
+          u = min
+        end 
+      end
+      if (@d[u] == @INFINITY)
+        break
+      end
+      q = q - [u]
+      @g[u].keys.each do |v|
+        alt = @d[u] + @g[u][v]
+        if (alt < @d[v])
+          @d[v] = alt
+          @prev[v]  = u
+        end
+      end
+    end
+  end
 
-	# Gets all shortests paths using dijkstra
+  # To print the full shortest route to a node
 
-	def shortest_paths(s)
-		@source = s
-		dijkstra s
-		puts "Source: #{@source}"
-		@nodes.each do |dest|
-			puts "\nTarget: #{dest}"
-			print_path dest
-			if @d[dest] != @INFINITY
-				puts "\nDistance: #{@d[dest]}"
-			else
-				puts "\nNO PATH"
-			end
-		end
-	end
+  def print_path(dest)
+    if @prev[dest] != -1
+      print_path @prev[dest]
+    end
+    print ">#{dest}"
+  end
+  
+  # To get a string with the shortest route to a node
+  
+  def get_path(dest,path)
+    if @prev[dest] != -1
+      path += get_path(@prev[dest],"")
+    end
+    path += ">#{dest}"
+  end
+
+# Gets all shortests paths using dijkstra
+
+  def shortest_paths(s)
+    @source = s
+    dijkstra s
+    puts "Source: #{@source}"
+    @nodes.each do |dest|
+      puts "\nTarget: #{dest}"
+      print_path dest
+      if @d[dest] != @INFINITY
+        puts "\nDistance: #{@d[dest]}"
+      else
+        puts "\nNO PATH"
+      end
+    end
+  end
 
 
-	def shortest_path(s,d)
-		@source = s
-		@dest = d
-		dijkstra s
-		puts "Source: #{@source}"
-		puts "\nTarget: #{@dest}"
-		print_path @dest
-		if @d[@dest] != @INFINITY
-			puts "\nDistance: #{@d[@dest]}"
-		else
-			puts "\nNO PATH"
-		end
-	end
+  def shortest_path(s,d)
+    @source = s
+    @dest = d
+    dijkstra s
+    if @d[@dest] != @INFINITY
+      # compute path-array
+      path = get_path(@dest,"")
+      pathnodes = path.split(">")
+      pathnodes[0] = @d[@dest]
+      pathnodes
+    else
+      # no path, return nil
+      nil
+    end
+  end
 
 end
 
