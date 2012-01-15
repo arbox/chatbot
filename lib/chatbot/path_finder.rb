@@ -76,17 +76,17 @@ class PathFinder
   def verbalize_path (path)
     # takes a path, returns a natural-language-description of given path
 
-	# build description
-	pathdescription = "Sie sind im " << @nodelist[path[1]]
-	p = path[2..-2]
-	p.each { |node|
-	  nodedesc = @nodelist[node]
+    # build description
+    pathdescription = "Sie sind im " << @nodelist[path[1]]
+    p = path[2..-2]
+    p.each { |node|
+      nodedesc = @nodelist[node]
       pathdescription << @pathdesc[rand(@pathdesc.length)] << nodedesc
     }
-	pathdescription << ". Sie kommen nun im " << @nodelist[path[-1]] << " an.\nDer Weg ist etwa " << path[0].to_s << " lang."
-	
-	#puts pathdescription
-	return pathdescription
+    pathdescription << ". Sie kommen nun im " << @nodelist[path[-1]] << " an.\nDer Weg ist etwa " << path[0].to_s << " lang."
+
+    #puts pathdescription
+    return pathdescription
   end
 
 end
