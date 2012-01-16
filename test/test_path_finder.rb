@@ -4,7 +4,7 @@ require 'test/unit'
 # require 'test/test_helper.rb'
 
 class TestPathFinder < Test::Unit::TestCase
-#  include TestHelper
+# include TestHelper
   
   def setup
     @finder = Chatbot::PathFinder.new(file)
