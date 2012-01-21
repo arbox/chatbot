@@ -171,19 +171,19 @@
 		<node name="vs1" type="stairs" desc="Treppenhaus"/>
 		<node name="ve1" type="elevator" desc="Aufzug"/>
 		<!-- Hörsäle -->
-		<node name="hs1" type="lecturehall" desc="Hörsaal 1"/>
-		<node name="hs2" type="lecturehall" desc="Hörsaal 2"/>
-		<node name="hs3" type="lecturehall" desc="Hörsaal 3"/>
-		<node name="hs4" type="lecturehall" desc="Hörsaal 4"/>
-		<node name="hs5" type="lecturehall" desc="Hörsaal 5"/>
-		<node name="hs6" type="lecturehall" desc="Hörsaal 6"/>
-		<node name="hs7" type="lecturehall" desc="Hörsaal 7"/>
-		<node name="hs8" type="lecturehall" desc="Hörsaal 8"/>
-		<node name="hs9" type="lecturehall" desc="Hörsaal 9"/>
-		<node name="hs10" type="lecturehall" desc="Hörsaal 10"/>
-		<node name="hs11" type="lecturehall" desc="Hörsaal 11"/>
-		<node name="hs12" type="lecturehall" desc="Hörsaal 12"/>
-		<node name="hs13" type="lecturehall" desc="Hörsaal 13"/>
+		<node name="hos1" type="lecturehall" desc="Hörsaal 1"/>
+		<node name="hos2" type="lecturehall" desc="Hörsaal 2"/>
+		<node name="hos3" type="lecturehall" desc="Hörsaal 3"/>
+		<node name="hos4" type="lecturehall" desc="Hörsaal 4"/>
+		<node name="hos5" type="lecturehall" desc="Hörsaal 5"/>
+		<node name="hos6" type="lecturehall" desc="Hörsaal 6"/>
+		<node name="hos7" type="lecturehall" desc="Hörsaal 7"/>
+		<node name="hos8" type="lecturehall" desc="Hörsaal 8"/>
+		<node name="hos9" type="lecturehall" desc="Hörsaal 9"/>
+		<node name="hos10" type="lecturehall" desc="Hörsaal 10"/>
+		<node name="hos11" type="lecturehall" desc="Hörsaal 11"/>
+		<node name="hos12" type="lecturehall" desc="Hörsaal 12"/>
+		<node name="hos13" type="lecturehall" desc="Hörsaal 13"/>
 		<node name="audimax" type="lecturehall" desc="Audimax"/>
 		<!-- Sonstiges -->
 		<!-- zB Bushaltestellen, Toiletten, Sportplätze, Geschäfte? -->
@@ -410,19 +410,19 @@
 		<edge from="v3" to="vs1" weight="1"/>
 		<edge from="v3" to="ve1" weight="1"/>
 		
-		<edge from="hs1" to="b0" weight="1"/>
-		<edge from="hs2" to="b0" weight="1"/>
-		<edge from="hs3" to="b0" weight="1"/>
-		<edge from="hs4" to="c0" weight="1"/>
-		<edge from="hs5" to="c0" weight="1"/>
-		<edge from="hs6" to="c0" weight="1"/>
-		<edge from="hs7" to="c0door3" weight="1"/>
-		<edge from="hs8" to="d0" weight="1"/>
-		<edge from="hs9" to="e0" weight="1"/>
-		<edge from="hs10" to="e0" weight="1"/>
-		<edge from="hs11" to="hz1" weight="1"/>
-		<edge from="hs12" to="hz1" weight="1"/>
-		<edge from="hs13" to="hz1" weight="1"/>
+		<edge from="hos1" to="b0" weight="1"/>
+		<edge from="hos2" to="b0" weight="1"/>
+		<edge from="hos3" to="b0" weight="1"/>
+		<edge from="hos4" to="c0" weight="1"/>
+		<edge from="hos5" to="c0" weight="1"/>
+		<edge from="hos6" to="c0" weight="1"/>
+		<edge from="hos7" to="c0door3" weight="1"/>
+		<edge from="hos8" to="d0" weight="1"/>
+		<edge from="hos9" to="e0" weight="1"/>
+		<edge from="hos10" to="e0" weight="1"/>
+		<edge from="hos11" to="hz1" weight="1"/>
+		<edge from="hos12" to="hz1" weight="1"/>
+		<edge from="hos13" to="hz1" weight="1"/>
 
 		
 		<!-- ------------------------------ Türen ------------------------------ -->
