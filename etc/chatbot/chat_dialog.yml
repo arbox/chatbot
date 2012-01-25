@@ -1,24 +1,24 @@
 # Begr¸ﬂung
-/(H(i|allo|uhu)|Guten|moin)/i: 'can_i_help'
+/(H(i|allo|uhu) |(moin)+|guten (morgen|tag|abend)|hey)/i: 'can_i_help'
 
 # Fragen des Benutzers
 /\?/i: 'can_i_help'
 /(was soll).+(\?)/i: 'can_i_help'
 # --> "Der Gl¸cksschnapper meint: schlafe noch eine Nach dr¸ber!"
 
-/(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)/i: 'answer_question'
-/(((ich bin).+(ORTSANGABE))?.+) | (Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)/i: 'answer_question'
+#/(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)/i: 'answer_question'
+#/(((ich bin).+(ORTSANGABE))?.+) | (Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)/i: 'answer_question'
 
 
 
 /(Sag du es mir|Ich weiﬂ nicht)/i: 'can_i_help'
 /(Wo bin ich)/i: 'can_i_help'
 
-/(ja|jep|jo|yes)/i: 'can_i_help'
+/(ja|jep+|jo|yes+)/i: 'can_i_help'
 
 
 /(bin|hab|ist|sind)/i: 'can_i_help'
-/(lange?weil|hunge?r|spaﬂ|spass|hilf|mutt|mama|wetter|kater|hangover)/i: 'can_i_help'
+/(lange?weil|hunge?r|spaﬂ|spass|hilf|mutt|mama|wetter|kater|hangover|unterhaltung)/i: 'can_i_help'
 # --> "Bei solchen W¸nschen solltest du lieber deine Mutter fragen."
 
 /(studium|bachelor|master|diplom|magister|uni|pr¸fung|pruefung|modul)/i: 'can_i_help'
@@ -26,25 +26,27 @@
 
 /(liebe|herz|seele|religion|gott|spaghettimonster)/i: 'can_i_help'
 # --> "Der Gl¸cksschnapper meint: sch¸tte dein Herz nicht Fremden aus!"
-
-/(pizza|dˆner|doener|sushi|fleisch|steak|zigarette|rauchen|caf|kaffe|drink|wein|bier|alkohol|mc|burger)/i: 'can_i_help'
-/(s¸ﬂigkeiten|suessigkeiten|kaugummi|bonbon|stulle|braten|sp‰tz|spaetz|eier|essen|durst)/i: 'can_i_help'
+/(s¸ﬂigkeiten|suessigkeiten|kaugummi|bonbon|stulle|braten|sp‰tz|spaetz|eier|essen|durst|obst|apfel|banane)/i: 'can_i_help'
+/(pizza|dˆner|doener|sushi|fleisch|zigarette|rauchen|caf|kaff|drink|wein|bier|alkohol|mc|burger)/i: 'can_i_help'
+/(keks|kuchen|quark|joghurt|cola|mittag|mittach|fraﬂ|futter|zigarette|rauchen|krabben|cocktail|k‰se|kaese)/i: 'can_i_help'
 # --> "Versuch es mit der Mensa."
 
 /(wasser|water)/i: 'can_i_help'
 # --> "Come find me when you've got something new to say, Helen Keller!"
 
 #/(das|solch|mein|unser|dein|ander)/i: 'can_i_help'
-/(zuhaus|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|woanders|china|amerika)/i: 'can_i_help'
+/(zuhaus|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|woanders|china|amerika|meer)/i: 'can_i_help'
 # --> "Hallo? Ich bin kein Stadtplan."
 
-#/(eit|ung|erei|ismus|ion|nis|ling|schaft|tum)/i: 'can_i_help'
-#/(ig|iert|ver|isch|lich|lei|sam)/i: 'can_i_help'
-# --> "Ups, du hast das Zauberwort gesagt."
+
+
+
 
 /(halt die|dumm|doof|blˆd|bloed|mist|scheiﬂ|scheiss|shit|fuck|damn)/i: 'say_tschuess'
 
 # Ablehnung f¸hrt zu Verabschiedung
 /(nein|nˆ|no|nope|egal)/i: 'say_tschuess'
 
-/(tsch¸ss|tschau|ciao|adios|machs gut|bye|auf wieder|keine weitere frage|das wars|dank)/i: 'say_tschuess'
+/(Tsch.ssi?|tschau|ciao|adios|machs gut|(good)?bye|auf wieder|keine weitere frage|das wars|dank|gute nacht)/i: 'say_tschuess'
+/42/i: 'say_tschuess'
+# --> "Anscheinend weiﬂt du selbst schon alles."
