@@ -1,9 +1,9 @@
+/(du bist)/i: 'Bei dem Lob werd ich ganz rot!'
 
 
 
 
-
-/(was soll).+(\?)/i: 'Der Glücksschnapper meint: schlafe noch eine Nach drüber!'
+/(was soll).+(\?)/i: 'Der Glücksschnapper meint: schlafe noch eine Nacht drüber!'
 
 
 
@@ -18,24 +18,24 @@
 
 
 #/(bin|hab|ist|sind)/i: 'can_i_help'
-/(lange?weil|hunge?r|spaß|spass|hilf|mutt|mama|wetter|kater|hangover|unterhaltung)/i: 'Bei solchen Wünschen solltest du lieber deine Mutter fragen.'
+/(lange?weil|hunge?r|spaß|spass|hilf|mutt|mama|wetter|kater|hangover|unterhaltung|freund|freud|erfolg)/i: 'Bei solchen Angelegenheiten solltest du lieber deine Mutter fragen.'
+/(reich|schönheit|schoenheit|warm|wärm|waerm)/i: 'Bei solchen Angelegenheiten solltest du lieber deine Mutter fragen.'
+
+/(studium|bachelor|master|diplom|magister|uni|prüfung|pruefung|modul|stundenplan)/i: 'Hey, so genau kenne ich den Campus nun auch nicht!'
 
 
-/(studium|bachelor|master|diplom|magister|uni|prüfung|pruefung|modul)/i: 'Hey, so genau kenne ich den Campus nun auch nicht!'
-
-
-/(liebe|herz|seele|religion|gott|spaghettimonster)/i: 'Der Glücksschnapper meint: schütte dein Herz nicht Fremden aus!'
+/(liebe|herz|seele|religion|gott|spaghettimonster|heirat|wahrheit|lüg|lueg)/i: 'Der Glücksschnapper meint: schütte dein Herz nicht Fremden aus!'
 
 /(süßigkeiten|suessigkeiten|kaugummi|bonbon|stulle|braten|spätz|spaetz|eier|essen|durst|obst|apfel|banane)/i: 'Versuch es mit der Mensa.'
-/(pizza|döner|doener|sushi|fleisch|zigarette|rauchen|caf|kaff|drink|wein|bier|alkohol|mc|burger)/i: 'Versuch es mit der Mensa.'
+/(pizza|döner|doener|sushi|fleisch|zigarette|rauchen|caf|kaff|drink|wein|bier|alkohol|mc|burger|energ)/i: 'Versuch es mit der Mensa.'
 /(keks|kuchen|quark|joghurt|cola|mittag|mittach|fraß|futter|zigarette|rauchen|krabben|cocktail|käse|kaese)/i: 'Versuch es mit der Mensa.'
 
 
 /(wasser|water)/i: 'Come find me when you've got something new to say, Helen Keller!'
-
+/(halb|fast|beinah|wenig)/i: 'Auf einem Bein kann man doch nicht stehen!'
 
 #/(das|solch|mein|unser|dein|ander)/i: 'can_i_help'
-/(zuhaus|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|woanders|china|amerika|meer)/i: 'Hallo? Ich bin kein Stadtplan.'
+/(zuhaus|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|berlin|woanders|china|amerika|meer|natur)/i: 'Hallo? Ich bin kein Stadtplan.'
 
 
 
