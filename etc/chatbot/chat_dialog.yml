@@ -1,38 +1,42 @@
-# Begrüßung
-"(H(i|allo|uhu) |Guten|(moin)+)": 'can_i_help'
-
-# Fragen des Benutzers
-"\?": 'can_i_help'
-
-
-"(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)": 'answer_question'
-"((ich bin ).*)|(Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)": 'answer_question'
-
-# ist die Abfrage des aktuellen Ortes nötig oder reicht die Wegbeschreibung?
-
-#? wenn der Benutzer mit nur einer Ortsangabe auf die Frage 'Wo befindest du dich?' und 'Wo möchtest du hin?' antwortet,
-#? gibt es eine Möglichkeit die Antwort der entsprechenden/richtigen Frage zuzuordnen?
-
-# wie reagieren, wenn nach zwei oder mehreren Wegen gefragt wird?
-# also wie erkennen, dass Zwischenstopps eingelegt werden sollen? soll das überhaupt möglich sein?
-
-
-# nicht passende Usereingaben --> enorm ausbaufähig!
-"(Sag du es mir|Ich wei. nicht)": 'can_i_help'
-"(Wo bin ich)": 'can_i_help'
-
-"(ja|jep+|jo|yes+)": 'can_i_help'
-# ...oder gibt es weitere Möglichkeiten, auf die mit "ja" geantwortet werden kann?
-
-# Ablehnung führt zu Verabschiedung
-"(nein|no|noe|nope)": 'say_tschuess'
-
-#Verabschiedung
-"(Tsch.ssi?|tschau|ciao|adios|machs gut|(good)?bye|auf wieder)": 'say_tschuess'
+/(du bist)/i: 'Bei dem Lob werd ich ganz rot!'
 
 
 
-#(b = can_i_help; w = answer_question)
 
-"(Wie komme|Wie finde)(.+)": answer_question 
-# für (.+) Ortsangabe 
+/(was soll).+(\?)/i: 'Der Glücksschnapper meint: schlafe noch eine Nacht drüber!'
+
+
+
+
+
+
+
+
+
+
+
+
+
+#/(bin|hab|ist|sind)/i: 'can_i_help'
+/(lange?weil|hunge?r|spaß|spass|hilf|mutt|mama|wetter|kater|hangover|unterhaltung|freund|freud|erfolg)/i: 'Bei solchen Angelegenheiten solltest du lieber deine Mutter fragen.'
+/(reich|schönheit|schoenheit|warm|wärm|waerm)/i: 'Bei solchen Angelegenheiten solltest du lieber deine Mutter fragen.'
+
+/(studium|bachelor|master|diplom|magister|uni|prüfung|pruefung|modul|stundenplan)/i: 'Hey, so genau kenne ich den Campus nun auch nicht!'
+
+
+/(liebe|herz|seele|religion|gott|spaghettimonster|heirat|wahrheit|lüg|lueg)/i: 'Der Glücksschnapper meint: schütte dein Herz nicht Fremden aus!'
+
+/(süßigkeiten|suessigkeiten|kaugummi|bonbon|stulle|braten|spätz|spaetz|eier|essen|durst|obst|apfel|banane)/i: 'Versuch es mit der Mensa.'
+/(pizza|döner|doener|sushi|fleisch|zigarette|rauchen|caf|kaff|drink|wein|bier|alkohol|mc|burger|energ)/i: 'Versuch es mit der Mensa.'
+/(keks|kuchen|quark|joghurt|cola|mittag|mittach|fraß|futter|zigarette|rauchen|krabben|cocktail|käse|kaese)/i: 'Versuch es mit der Mensa.'
+
+
+/(wasser|water)/i: 'Come find me when you've got something new to say, Helen Keller!'
+/(halb|fast|beinah|wenig)/i: 'Auf einem Bein kann man doch nicht stehen!'
+
+#/(das|solch|mein|unser|dein|ander)/i: 'can_i_help'
+/(zuhaus|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|berlin|woanders|china|amerika|meer|natur)/i: 'Hallo? Ich bin kein Stadtplan.'
+
+
+
+/42/i: 'Anscheinend weißt du selbst schon alles.'
