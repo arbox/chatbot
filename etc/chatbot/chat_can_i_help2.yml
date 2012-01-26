@@ -1,5 +1,5 @@
 "(H(i|allo|uhu)) |danke|(ja (noch eine Frage)|nicht verstanden|(moin)+|guten (morgen|tag|abend)|hey)" : "can_i_help" 
-/(ja|jep+|jo|yes+)/i: 'can_i_help'
-/(Wo bin ich)/i: 'can_i_help'
-/(Sag du es mir|Ich weiß nicht)/i: 'can_i_help'
-/\?/i: 'can_i_help' 
+"(ja|jep+|jo|yes+)" : 'can_i_help'
+"(Wo bin ich)" : 'can_i_help'
+"(Sag du es mir|Ich weiï¿½ nicht)" : 'can_i_help'
+"\?" : 'can_i_help' 
