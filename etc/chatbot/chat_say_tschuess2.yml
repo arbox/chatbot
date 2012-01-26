@@ -1,3 +1,3 @@
 "wiedersehen|Tschuess|aufwiedersehen| auf wieders|machs gut|gute nacht|bye|ciao|adios|tschau|Nein|n.|no|nope|das wars|Danke f.r|keine (andere|weitere) Frage" : "say_tschuess"
-/(nein|nö|no|nope|egal)/i: 'say_tschuess'
-/(halt die|dumm|doof|blöd|bloed|mist|scheiß|scheiss|shit|fuck|damn)/i: 'say_tschuess'
+"(nein|nï¿½|no|nope|egal)" : 'say_tschuess'
+"(halt die|dumm|doof|blï¿½d|bloed|mist|scheiï¿½|scheiss|shit|fuck|damn)" : 'say_tschuess'
