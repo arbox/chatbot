@@ -1,9 +1,4 @@
-# can_i_help
-
-"hallo" : "can_i_help"
-"danke" : "can_i_help"
-"ja, ich habe noch eine Frage" : "can_i_help"
-"ach noch was" : "can_i_help"
-"ja" : "can_i_help"
-"noch eine Frage" : "can_i_help"
-"ich habe nicht verstanden" : "can_i_help"
+"(^hi|H(allo+|uhu)|hey|danke|noch eine Frage|(weitere|andere) Frage|nicht verstanden|(moin)+|guten (morgen|tag|abend))" : "can_i_help" 
+"(ja+|jep+|jo+|yes+)" : 'can_i_help'
+"(Wo bin ich)" : 'can_i_help'
+"(Sag du es mir|Ich wei(ß|ss) nicht)" : 'can_i_help'

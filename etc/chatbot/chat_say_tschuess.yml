@@ -1,13 +1,4 @@
-# say_tschuess
-
-"wiedersehen" : "say_tschuess"
-"tschuess": "say_tschuess"
-"aufwiedersehen" : "say_tschuess"
-"einen angenehmen Tag" : "say_tschuess"
-"machs gut" : "say_tschuess"
-"bye bye" : "say_tschuess"
-"ciao" : "say_tschuess"
-"haben Sie vielen Dank" : "say_tschuess"
-"nein ich habe keine andere Frage" : "say_tschuess"
-"Nein, das w.rs schon" : "say_tschuess"
-"Danke f.r Ihre Hilfe" : "say_tschuess"
+"(wiedersehen|Tschuess|aufwiedersehen|auf wieders|machs gut|gute nacht|bye|ciao|adios|tschau|das wars|Danke für|danke fuer|keine (andere|weitere) Frage)" : "say_tschuess"
+"(nein|nö|noe|nope|egal)" : 'say_tschuess'
+"(halt die|dumm|doof|blöd|bloed|mist|scheiß|scheiss|shit|fuck|damn|freak|deine (mutt|mudd)|arsch)" : 'say_tschuess'
+"(cu|cya|stfu|ttyl|wtf)" : 'say_tschuess'

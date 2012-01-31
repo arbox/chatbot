@@ -4,8 +4,15 @@
 require 'yaml'
 require 'chatbot'
 
-config = YAML.load_file('chatbot/bot.conf')
+puts "Starte Chatbot. Beenden mit <Strg-C>"
 
+config = {
+	:name => 'Example Chat Bot',
+	:jabber_id => 'ldvtestchatbot@googlemail.com',
+	:password => 'hundekuc',
+	:master => 'dtrierwe@googlemail.com',
+	:is_public => true
+}
 
 bot = Chatbot::Bot.new(config)
 

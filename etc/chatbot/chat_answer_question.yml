@@ -1,4 +1,3 @@
-# answer_question
-
-"noch eine Frage" : "answer_question"
-"und wie": "answer_question"
+"(Sage? mir,? (wo|wie) |Zeige? mir den Weg (zum?|nach)).+(\!)" : "answer_question"
+"(und wie)" : "answer_question"
+"vo[mn] (?>der |dem |den )?(.+?) zu[mr]? (?>der |dem |den )?(.+?)[.?]?" : "answer_question"

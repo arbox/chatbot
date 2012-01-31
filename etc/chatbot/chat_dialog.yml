@@ -1,38 +1,44 @@
-# Begr��ung
-"(H(i|allo|uhu) |Guten|(moin)+)": 'can_i_help'
+"(du bist)" : 'Bei dem Lob werd ich ganz rot!'
 
-# Fragen des Benutzers
-"\?": 'can_i_help'
+"(was soll).+(\?)" : 'Der Glücksschnapper meint: schlafe noch eine Nacht drüber!'
 
+"(wann|ostern|wochenende)" : 'Dafür solltest du lieber in den Kalender schauen.'
+"(wer|was|woher|warum|wieviel|welche)" : 'Leider bin ich nur eine Bedienungsanleitung für den Campus.'
 
-"(Sage? mir,? (wo|wie)|Zeige? mir den Weg (zum?|nach)).+(\!)": 'answer_question'
-"((ich bin ).*)|(Wo ist|Wo sind|Wo finde|Wie komme|Wie finde).+(\?)": 'answer_question'
+#Kürzel
+"(lo(f)?l|rofl|gg|ftw|lm(f)?ao|haha|hihi|hoho)" : 'Haha, und nun zu deiner Frage.'
+"(:(p|D|x|o|$|s|@)|;(p|D|x|o|$|s|@))" : '0(-_-)0'
+# :) ;) 8) ?
 
-# ist die Abfrage des aktuellen Ortes n�tig oder reicht die Wegbeschreibung?
+#häufig benutzte Wörter?
+"(lange?weil|hunge?r|spaß|spass|hilf|mutt|mama|wetter|kater|hangover|unterhaltung|freund|freud|erfolg)" : 'Bei solchen Angelegenheiten solltest du lieber deine Mutter befragen.'
+"(geld|schönheit|schoenheit|warm|wärm|waerm|weihnachten|welt|müde|muede)" : 'Bei solchen Angelegenheiten solltest du lieber deine Mutter befragen.'
+"(liebe|herz|seele|religion|gott|spaghettimonster|heirat|wahrheit|lüg|lueg|angst|sex)" : 'Der Glücksschnapper meint: schütte dein Herz nicht Fremden aus!'
 
-#? wenn der Benutzer mit nur einer Ortsangabe auf die Frage 'Wo befindest du dich?' und 'Wo m�chtest du hin?' antwortet,
-#? gibt es eine M�glichkeit die Antwort der entsprechenden/richtigen Frage zuzuordnen?
+#bezüglich "Aktuellem"
+"(chatroulette|zalando|dsds|klum|merkel|wulff|obama|costa|irak|afghanistan|libyen)" : 'Ups, einer von uns beiden ist da wohl an den falschen Gesprächspartner geraten...'
+"(facebook|google|apple|iphone|ipad|skype|icq)" : 'Jaaa geeenau, vielleicht findest du damit eine bessere Antwort!!!'
 
-# wie reagieren, wenn nach zwei oder mehreren Wegen gefragt wird?
-# also wie erkennen, dass Zwischenstopps eingelegt werden sollen? soll das �berhaupt m�glich sein?
+#bezüglich Uni
+"(studium|bachelor|master|diplom|magister|uni|prüfung|pruefung|modul|stundenplan|semester|ferien|prof)" : 'Hey, so genau kenne ich den Campus nun auch nicht!'
 
+#bezüglich Nahrung
+"(süßigkeiten|suessigkeiten|kaugummi|bonbon|stulle|braten|spätz|spaetz|eier|essen|durst|obst|apfel|banane)" : 'Versuch es mit der Mensa.'
+"(pizza|döner|doener|sushi|fleisch|zigarette|rauchen|kaff|drink|wein|bier|alkohol|mc|burger|energ)" : 'Versuch es mit der Mensa.'
+"(keks|kuchen|quark|joghurt|cola|fanta|sprite|mittag|mittach|fraß|futter|zigarette|rauchen|krabben|cocktail|käse|kaese)" : 'Versuch es mit der Mensa.'
 
-# nicht passende Usereingaben --> enorm ausbauf�hig!
-"(Sag du es mir|Ich wei. nicht)": 'can_i_help'
-"(Wo bin ich)": 'can_i_help'
+#bezüglich Ort
+"(zuhaus|hause|mond|himmel|aldi|porta|bahnhof|tankstelle|luxemb|berlin|china|amerika|meer|natur|pfalz)" : 'Hallo? Ich bin kein Stadtplan.'
+"(saar|koblenz|köln|koeln|pott|(nord|ost)see|frank(reich|furt)|bank|(hol|deutsch|eng)land|amsterdam|bus|sportplatz)" : 'Hallo? Ich bin kein Stadtplan.'
+"( rein|^rein|draußen|draussen|trier|woanders|toilette|klo)" : 'Du solltest das etwas näher benennen.'
 
-"(ja|jep+|jo|yes+)": 'can_i_help'
-# ...oder gibt es weitere M�glichkeiten, auf die mit "ja" geantwortet werden kann?
+#Goodies
+"(wasser|water)" : "Come find me when you've got something new to say, Helen Keller!"
+"(halb|fast|beinah|wenig)" : 'Auf einem Bein kann man doch nicht stehen!'
 
-# Ablehnung f�hrt zu Verabschiedung
-"(nein|no|noe|nope)": 'say_tschuess'
+"(chuck norris)" : "I won't search for Chuck Norris because I know you don't find Chuck Norris, he finds you."
+"^42$" : 'Anscheinend weißt du selbst schon alles.'
+"(test)" : 'Test This! Warum ist die Banane krumm?'
 
-#Verabschiedung
-"(Tsch.ssi?|tschau|ciao|adios|machs gut|(good)?bye|auf wieder)": 'say_tschuess'
-
-
-
-#(b = can_i_help; w = answer_question)
-
-"(Wie komme|Wie finde)(.+)": answer_question 
-# f�r (.+) Ortsangabe 
+#"(das|solch|mein|unser|dein|ander)" :
+#"(bin|hab|ist|sind)" :

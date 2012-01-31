@@ -1,8 +1,7 @@
 require 'rubygems'
 require 'chatbot/my_jabber_bot' # jabber-bot
 require 'chatbot/config_reader'
-require 'chatbot/analyse_question'
-require 'chatbot/syntese_answer'
+require 'chatbot/analyze_question'
 require 'chatbot/path_finder'
 
 module Chatbot
@@ -14,6 +13,9 @@ module Chatbot
 	  #Initialisieren des PathFinder mit Graphen
 	  @this_path_finder = Chatbot::PathFinder.new("lib/chatbot/campusgraph.xml")
 	  
+	  #Initialisieren des QuestionAnalyzers
+	  @aq = QuestionAnalyzer.new(@this_path_finder.get_nodelist())
+	  	  	  
 	  #Laden der Antworten 
 	  @lines_say_tschuess = YAML.load_file("etc/chatbot/answers_say_tschuess.yml")
 	  @lines_can_i_help = YAML.load_file("etc/chatbot/answers_can_i_help.yml")  
@@ -53,20 +55,31 @@ module Chatbot
 	
 	#Methode, die über den Pathfinder den Weg erfragt und ausgibt
 	def answer_question(sender, msg)
-	  aq = AnalyseQuestion.new(msg)
-	  	  
-	  if aq.result[0] == "unbekannt" && aq.result[1] == "unbekannt"
-	    return "Leider konnte ich deiner Anfrage weder einen Start noch einen Zielort entnehmen. Am besten verstehe ich Anfragen im Format: von ... nach ..."
+	  res = @aq.analyze_question(msg)
+	  
+	  if (res == nil)
+	    return "Das wird so wohl nichts. (res nil) Versuch es mit 'und wie von <start> zu <ziel>'. Uebrigens: Kaese ist heute im Angebot."
 	  end
-	  if aq.result[0] == "unbekannt"
-        return "Leider konnte ich nur deinen Zielort erkennen: #{aq.result[1]}. Bitte formuliere die Anfrage nochmal in folgendem Format: von ... nach ..."
+	  
+	  if (res.length < 2)
+		puts res.inspect
+		return "Das wird so wohl nichts. Versuch es mit 'und wie von <start> zu <ziel>'. Uebrigens: Kaese ist heute im Angebot."
+	  else  
+		if (res[2] == 0)
+		  return "Du bist bei '#{res[0]}'? Von da aus kann ich dir leider auch nicht helfen."
+		end 
+		if (res[3] == 0)
+		  return "#{res[1]}? Noch nie von gehört, sorry"
+		end
+		
+		path = @this_path_finder.find_path(res[0], res[1])
+		if (path == nil) 
+		  return "Ich habe verstanden: Weg von #{res[0]} nach #{res[1]}. Computer sagt 'Nein'."
+		end
+		
+		sa = @this_path_finder.verbalize_path(path)	  
+	    return sa
 	  end
-	  if aq.result[1] == "unbekannt"
-        return "Leider konnte ich nur deinen Startort erkennen: #{aq.result[0]}. Bitte formuliere die Anfrage nochmal in folgendem Format: von ... nach ..."
-	  end
-	  	  
-	  sa = SynteseAnswer.new(@this_path_finder.find_path(aq.result[0], aq.result[1]))	  
-	  return sa.result
 	end
   end # Bot
 end # Chatbot
